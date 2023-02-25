@@ -9,7 +9,12 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Area2D",
+"base": "Distraction",
+"class": "Clock",
+"language": "GDScript",
+"path": "res://Scripts/Clock.gd"
+}, {
+"base": "Node2D",
 "class": "Distraction",
 "language": "GDScript",
 "path": "res://Scripts/Distraction.gd"
@@ -25,6 +30,7 @@ _global_script_classes=[ {
 "path": "res://Scripts/GameManager.gd"
 } ]
 _global_script_class_icons={
+"Clock": "",
 "Distraction": "",
 "Dragable": "",
 "GameManager": ""
