@@ -20,9 +20,9 @@ func start_panic():
 	.start_panic()
 	windowDragable.draggable = true
 	tween.interpolate_property(window, 'position', null, open_position,
-		0.4, Tween.EASE_OUT, Tween.EASE_OUT, 0.1)
+		0.4, Tween.EASE_OUT, Tween.EASE_IN, 0.1)
 	tween.interpolate_property(window, 'rotation_degrees', null, open_rotation,
-		0.4, Tween.EASE_OUT, Tween.EASE_OUT, 0.1)
+		0.4, Tween.EASE_OUT, Tween.EASE_IN, 0.1)
 	tween.start()
 	
 	audio_stream.play()
@@ -32,9 +32,9 @@ func _end_panic():
 	windowDragable.draggable = false
 	audio_stream.stop()
 	tween.interpolate_property(window, 'position', null, closed_position,
-		0.4, Tween.EASE_OUT, Tween.EASE_OUT, 0.1)
+		0.3, Tween.EASE_OUT, Tween.EASE_IN)
 	tween.interpolate_property(window, 'rotation_degrees', null, closed_rotation,
-		0.4, Tween.EASE_OUT, Tween.EASE_OUT, 0.1)
+		0.3, Tween.EASE_OUT, Tween.EASE_IN)
 
 	tween.start()
 	

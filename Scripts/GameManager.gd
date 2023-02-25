@@ -41,7 +41,6 @@ func _ready():
 		_distractions_per_level[distraction.level].append(distraction)
 		
 	print_debug(_distractions_per_level)
-	
 	_start_game()
 
 
