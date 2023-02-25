@@ -5,7 +5,7 @@
 [ext_resource path="res://Textures/lofiRatonPlaceholderEmpty.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/phone.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/garlandLights.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scripts/GameManager.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/window.tscn" type="PackedScene" id=6]
 
 [node name="Root" type="Node"]
 script = ExtResource( 6 )
@@ -31,3 +31,6 @@ script = ExtResource( 2 )
 [node name="laptop" type="CollisionPolygon2D" parent="Sprite/laptop"]
 position = Vector2( 170, 157 )
 polygon = PoolVector2Array( -12, 131, 119, 42, -49, -87, -156, -16, -230, -79, -174, 2, -22, 136 )
+
+[node name="window" parent="." instance=ExtResource( 6 )]
+position = Vector2( 371, 312 )

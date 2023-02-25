@@ -8,6 +8,28 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "Distraction",
+"language": "GDScript",
+"path": "res://Scripts/Distraction.gd"
+}, {
+"base": "Node2D",
+"class": "Dragable",
+"language": "GDScript",
+"path": "res://Scripts/Dragable.gd"
+}, {
+"base": "Node",
+"class": "GameManager",
+"language": "GDScript",
+"path": "res://Scripts/GameManager.gd"
+} ]
+_global_script_class_icons={
+"Distraction": "",
+"Dragable": "",
+"GameManager": ""
+}
+
 [application]
 
 config/name="LofiPanic"
