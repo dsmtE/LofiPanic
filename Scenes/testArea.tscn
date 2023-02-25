@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/clock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Distraction.gd" type="Script" id=2]
 [ext_resource path="res://Textures/lofiRatonPlaceholderEmpty.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/phone.tscn" type="PackedScene" id=4]
 
 [node name="Node2D" type="Node2D"]
 
@@ -13,12 +14,10 @@ texture = ExtResource( 3 )
 [node name="clock" parent="Sprite" instance=ExtResource( 1 )]
 position = Vector2( -152, 41 )
 
-[node name="phone" type="Area2D" parent="Sprite"]
-script = ExtResource( 2 )
-
-[node name="phone" type="CollisionPolygon2D" parent="Sprite/phone"]
-position = Vector2( 380, 247 )
-polygon = PoolVector2Array( -161, 50, -126, 91, -19, 51, -46, 13 )
+[node name="phone" parent="Sprite" instance=ExtResource( 4 )]
+position = Vector2( 289, 295 )
+shake_duration_amp = 0.05
+shake_count = 10.0
 
 [node name="laptop" type="Area2D" parent="Sprite"]
 script = ExtResource( 2 )
