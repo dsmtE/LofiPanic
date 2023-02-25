@@ -1,5 +1,6 @@
 extends Area2D
 
+signal clicked
 
 var hovered: bool = false
 
@@ -12,8 +13,7 @@ func _on_Area2D_input_event(viewport: Node, event: InputEvent, shape_idx: int):
 	var mouse_event := event as InputEventMouseButton
 	if (mouse_event && mouse_event.pressed && mouse_event.button_index == BUTTON_LEFT):
 		print("%s clicked" % name)
-		
-
+		emit_signal("clicked")
 
 func _on_Area2D_mouse_entered():
 	hovered = true
