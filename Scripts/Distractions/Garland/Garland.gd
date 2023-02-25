@@ -11,8 +11,6 @@ func _ready():
 	Utils.find_by_class(LightsContainer, GarlandLight, lights)
 	for light in lights:
 		light.connect("panic_ended", self, "_end_panic_light")
-		
-	start_panic()
 	
 func start_panic():
 	.start_panic()

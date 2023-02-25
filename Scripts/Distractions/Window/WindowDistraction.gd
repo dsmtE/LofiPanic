@@ -15,7 +15,6 @@ var closed_rotation: float
 func _ready():
 	closed_position = window.position
 	closed_rotation = window.rotation
-	start_panic()
 	
 func start_panic():
 	.start_panic()
