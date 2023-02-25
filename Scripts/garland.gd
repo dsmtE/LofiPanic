@@ -24,7 +24,7 @@ func panic():
 	start_flicker_lights()
 	panic = true
 
-func _process(delta):
+func _process(_delta):
 	if panic && !audio_stream.playing:
 		audio_stream.play()
 	
@@ -53,12 +53,12 @@ func flicker_light(light: Sprite):
 	tween.repeat = true
 	tween.start()
 	
-func _on_Node2D_input_event(viewport, event, shape_idx):
+func _on_Node2D_input_event(_viewport, event, shape_idx):
 	var mouse_event := event as InputEventMouseButton
 	if (mouse_event && mouse_event.pressed && mouse_event.button_index == BUTTON_LEFT):
 		stop_light(shape_idx)
 
-func _on_Tween_tween_completed(object, key):
+func _on_Tween_tween_completed(object, _key):
 	var id = lights_sprites.find(object)
 	if lights_panic[id]: 
 		flicker_light(object)

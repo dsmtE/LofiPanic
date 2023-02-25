@@ -26,7 +26,7 @@ func _ready():
 		)
 	tween.repeat = true
 
-func _process(delta):
+func _process(_delta):
 	# TODO : 
 	pass
 
@@ -35,7 +35,7 @@ func start_panic():
 	audio_stream.play()
 	tween.start()
 	
-func _on_Area2D_input_event(viewport, event, shape_idx):
+func _on_Area2D_input_event(_viewport, event, _shape_idx):
 	var mouse_event := event as InputEventMouseButton
 	if (mouse_event && mouse_event.pressed && mouse_event.button_index == BUTTON_LEFT):
 		audio_stream.stop()

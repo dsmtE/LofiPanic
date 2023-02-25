@@ -9,7 +9,7 @@ var _start_dragging_local_offset: Vector2 = Vector2()
 func _ready():
 	connect("dragging_started", self, "_dragging_started")
 
-func tween_to_starting_state(starting_pos: Vector2, current_pos: Vector2):
+func tween_to_starting_state(_starting_pos: Vector2, _current_pos: Vector2):
 	tween.interpolate_property(
 			sprite,
 			"position",
@@ -21,7 +21,7 @@ func tween_to_starting_state(starting_pos: Vector2, current_pos: Vector2):
 		)
 	tween.start()
 	
-func tween_to_current_state(starting_mouse_pos: Vector2, current_mouse_pos: Vector2):
+func tween_to_current_state(_starting_mouse_pos: Vector2, current_mouse_pos: Vector2):
 	
 	var local_mouse_pos: Vector2 = sprite_parent.to_local(current_mouse_pos)
 	var target_position: Vector2 = local_mouse_pos + _start_dragging_local_offset

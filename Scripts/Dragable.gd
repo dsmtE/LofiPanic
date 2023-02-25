@@ -23,19 +23,19 @@ func _ready():
 	target_area2D_shape.connect("mouse_entered", self, "_on_target_area_mouse_entered")
 	pass
 
-func _on_source_area2D_input_event(viewport: Node, event: InputEvent, shape_idx: int):
+func _on_source_area2D_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if event is InputEventMouseButton && event.pressed && event.button_index == BUTTON_LEFT:
 		starting_drag_pos = get_global_mouse_position()
 		dragging = true
 		dragging_started(starting_drag_pos)
 
-func tween_to_starting_state(starting_pos: Vector2, current_mouse_pos: Vector2):
+func tween_to_starting_state(_starting_pos: Vector2, _current_mouse_pos: Vector2):
 	pass
 	
-func tween_to_current_state(starting_pos: Vector2, current_mouse_pos: Vector2):
+func tween_to_current_state(_starting_pos: Vector2, _current_mouse_pos: Vector2):
 	pass
 	
-func dragging_started(current_mouse_pos: Vector2):
+func dragging_started(_current_mouse_pos: Vector2):
 	pass
 
 func _input(event: InputEvent):
