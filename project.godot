@@ -57,8 +57,8 @@ _global_script_class_icons={
 [application]
 
 config/name="LofiPanic"
-run/main_scene="res://Scenes/testArea.tscn"
 config/icon="res://bourdon_icon.png"
+run/main_scene="res://Scenes/MainScene.tscn"
 
 [display]
 

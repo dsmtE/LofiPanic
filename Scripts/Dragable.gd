@@ -13,6 +13,8 @@ export(String) var target_area2D_node_path
 onready var source_area2D_shape: Area2D = get_node(source_area2D_node_path)
 onready var target_area2D_shape: Area2D = get_node(target_area2D_node_path)
 
+var draggable: bool = false
+
 var dragging: bool = false
 var starting_drag_pos: Vector2 = Vector2()
 var current_drag_pos: Vector2 = Vector2()
@@ -21,9 +23,10 @@ func _ready():
 	set_process_input(true)
 	source_area2D_shape.connect("input_event", self, "_on_source_area2D_input_event")
 	target_area2D_shape.connect("mouse_entered", self, "_on_target_area_mouse_entered")
-	pass
 
 func _on_source_area2D_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
+	if !draggable: return
+	
 	if event is InputEventMouseButton && event.pressed && event.button_index == BUTTON_LEFT:
 		starting_drag_pos = get_global_mouse_position()
 		dragging = true
