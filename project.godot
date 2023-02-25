@@ -28,12 +28,18 @@ _global_script_classes=[ {
 "class": "GameManager",
 "language": "GDScript",
 "path": "res://Scripts/GameManager.gd"
+}, {
+"base": "Reference",
+"class": "Utils",
+"language": "GDScript",
+"path": "res://Scripts/Utils.gd"
 } ]
 _global_script_class_icons={
 "Clock": "",
 "Distraction": "",
 "Dragable": "",
-"GameManager": ""
+"GameManager": "",
+"Utils": ""
 }
 
 [application]
