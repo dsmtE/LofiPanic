@@ -8,6 +8,8 @@ export(float) var _max_distraction_wait_time = 5.0
 onready var _level_timer: Timer = $"%LevelTimer"
 onready var _new_distraction_trigger_timer: Timer = $"%NewDistractionTriggerTimer"
 
+onready var _sleep_feedbacks: SleepFeedbacks = $"%SleepFeedbacks"
+
 var _distractions_per_level: Array = []
 
 # Contains all distractions of level 0 when player is at level 0,
@@ -18,6 +20,8 @@ var _distractions_in_panic: Array = []
 
 var _current_level = 0
 var _highest_level = 0
+
+var _sleep_health : float = 100.0
 
 func _ready():
 	var distractions: Array = []
@@ -42,6 +46,9 @@ func _ready():
 
 
 func _start_game():
+	_sleep_health = 100.0
+	_sleep_feedbacks.sleep_health = 100.0
+	
 	_current_level = 0
 	_current_pool_of_distractions.clear()
 	_current_pool_of_distractions.append_array(_distractions_per_level[0])
@@ -58,9 +65,16 @@ func _start_game():
 #		distraction = distraction as Distraction
 #		distraction.start_panic()
 
+### DISTRACTION MANAGEMENT
+func _process(delta):
+	for distraction in _distractions_in_panic:
+		_sleep_health -= delta # TODO ?? Add a power variable to each distraction
+		_sleep_feedbacks.sleep_health = _sleep_health
+	
+	if _sleep_health <= 0:
+		_lose_game()
 
 func _on_NewDistractionTriggerTimer_timeout():
-	print_debug("_on_NewDistractionTriggerTimer_timeout")
 	_trigger_new_distraction()
 	
 	_new_distraction_trigger_timer.wait_time = rand_range(_min_distraction_wait_time, _max_distraction_wait_time)
@@ -86,6 +100,7 @@ func _trigger_new_distraction():
 
 func _on_distraction_panic_ended(distraction):
 	_distractions_in_panic.erase(distraction)
+	
 	print_debug("Distraction %s ended" % distraction.name)
 	
 
@@ -108,7 +123,8 @@ func _start_next_level():
 func _win_game():
 	print_debug("GAME IS FINISHED AND WON BY THE PLAYER AT LEVEL %d" % _current_level)
 
-
+func _lose_game():
+	get_tree().quit()
 
 
 
