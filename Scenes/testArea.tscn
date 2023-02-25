@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/clock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Distraction.gd" type="Script" id=2]
@@ -6,9 +6,10 @@
 [ext_resource path="res://Scenes/phone.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/garlandLights.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/window.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/GameManager.gd" type="Script" id=7]
 
 [node name="Root" type="Node"]
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 640, 360 )
@@ -34,3 +35,19 @@ polygon = PoolVector2Array( -12, 131, 119, 42, -49, -87, -156, -16, -230, -79, -
 
 [node name="window" parent="." instance=ExtResource( 6 )]
 position = Vector2( 371, 312 )
+
+[node name="LevelTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 30.0
+__meta__ = {
+"_editor_description_": "Duration of each levels.
+At the end of this timer, we start the next level.
+This will add a new set of potential distractions, on top of the current one."
+}
+
+[node name="NewDistractionTriggerTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.0
+
+[connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]
+[connection signal="timeout" from="NewDistractionTriggerTimer" to="." method="_on_NewDistractionTriggerTimer_timeout"]
