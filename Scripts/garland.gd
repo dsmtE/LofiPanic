@@ -3,7 +3,6 @@ extends Node2D
 onready var audio_stream : AudioStreamPlayer = $AudioStreamPlayer
 onready var tween : Tween = $Tween
 
-onready var sprite : Sprite = $Sprite
 var lights_sprites: Array = []
 
 var panic: bool = false
@@ -11,7 +10,7 @@ var lights_panic: Array = [false, false, false, false]
 
 var glow_color = Color(1.5,1.3,1.2,1)
 
-func _ready():		
+func _ready():
 	randomize()
 	for child in get_node("garlands/lights").get_children():
 		if child is Sprite:
@@ -42,7 +41,7 @@ func start_flicker_lights():
 	for i in lights_sprites.size():
 		if lights_panic[i]:
 			flicker_light(lights_sprites[i])
-		
+
 func flicker_light(light: Sprite):
 	light.set_modulate(glow_color)
 	
