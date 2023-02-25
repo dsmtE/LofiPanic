@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/garland.png-a7538f72277390233f58ff260f8408c0.stex"
+path="res://.import/phone.png-1fb52c77b96030939b25d6696111f290.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/garland.png"
-dest_files=[ "res://.import/garland.png-a7538f72277390233f58ff260f8408c0.stex" ]
+source_file="res://Textures/Placeholder/phone.png"
+dest_files=[ "res://.import/phone.png-1fb52c77b96030939b25d6696111f290.stex" ]
 
 [params]
 

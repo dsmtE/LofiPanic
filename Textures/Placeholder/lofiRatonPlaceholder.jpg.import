@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lofiRatonPlaceholderEmpty.png-b8ebb5bf632ece05686a2c4af1e4b277.stex"
+path="res://.import/lofiRatonPlaceholder.jpg-a52a1b33ffd7f2fe36b5e7182a33c569.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/lofiRatonPlaceholderEmpty.png"
-dest_files=[ "res://.import/lofiRatonPlaceholderEmpty.png-b8ebb5bf632ece05686a2c4af1e4b277.stex" ]
+source_file="res://Textures/Placeholder/lofiRatonPlaceholder.jpg"
+dest_files=[ "res://.import/lofiRatonPlaceholder.jpg-a52a1b33ffd7f2fe36b5e7182a33c569.stex" ]
 
 [params]
 

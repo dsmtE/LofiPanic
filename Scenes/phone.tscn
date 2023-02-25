@@ -2,7 +2,8 @@
 
 [ext_resource path="res://Sounds/Retro Event Acute 08.wav" type="AudioStream" id=1]
 [ext_resource path="res://Scripts/Clock.gd" type="Script" id=2]
-[ext_resource path="res://Textures/phone.png" type="Texture" id=4]
+[ext_resource path="res://Textures/Placeholder/phone.png" type="Texture" id=4]
+
 
 [node name="phone" type="Node2D"]
 script = ExtResource( 2 )

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/AlarmClock.png-5d8e67c1ebfa21b87a503f9a27d54542.stex"
+path="res://.import/garland.png-11077941ff25f39e1245e6f21e3c72ec.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/AlarmClock.png"
-dest_files=[ "res://.import/AlarmClock.png-5d8e67c1ebfa21b87a503f9a27d54542.stex" ]
+source_file="res://Textures/Placeholder/garland.png"
+dest_files=[ "res://.import/garland.png-11077941ff25f39e1245e6f21e3c72ec.stex" ]
 
 [params]
 
