@@ -18,7 +18,3 @@ func _end_panic():
 
 func is_in_panic_get() -> bool :
 	return is_in_panic
-	
-
-func _ready():
-	pass
