@@ -51,7 +51,8 @@ func _start_game():
 	
 	_current_level = 0
 	_current_pool_of_distractions.clear()
-	_current_pool_of_distractions.append_array(_distractions_per_level[0])
+	if _distractions_per_level.size() > 0:
+		_current_pool_of_distractions.append_array(_distractions_per_level[0])
 	
 	print_debug("Pool of distractions at level %d : %s" % [_current_level , _current_pool_of_distractions])
 	
