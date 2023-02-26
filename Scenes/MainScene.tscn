@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Textures/decors/chambre.png" type="Texture" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://Textures/triggers/mini_bulle.png" type="Texture" id=28]
 [ext_resource path="res://Scenes/SceneTransition.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Scripts/Hint.gd" type="Script" id=30]
+[ext_resource path="res://Shaders/screen_color_edge_hint.tres" type="Shader" id=31]
 
 [sub_resource type="Environment" id=3]
 background_mode = 4
@@ -43,6 +44,16 @@ extents = Vector2( 209.174, 45.1784 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 15.2115, 20.4416 )
+
+[sub_resource type="ShaderMaterial" id=13]
+shader = ExtResource( 31 )
+shader_param/edge_color = Color( 1, 1, 1, 1 )
+shader_param/threshold = 0.517
+shader_param/blend = 0.704
+
+[sub_resource type="ImageTexture" id=14]
+lossy_quality = 1.0
+size = Vector2( 20, 70 )
 
 [sub_resource type="Gradient" id=5]
 offsets = PoolRealArray( 0, 0.155172, 0.814176, 1 )
@@ -114,6 +125,9 @@ environment = SubResource( 3 )
 [node name="Outside" type="Sprite" parent="."]
 position = Vector2( 391, 221 )
 texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="LevelTimer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -218,7 +232,6 @@ position = Vector2( 943, 193 )
 texture = ExtResource( 16 )
 
 [node name="On" type="Sprite" parent="Lampe"]
-visible = false
 modulate = Color( 1.5, 1.5, 1.5, 1 )
 position = Vector2( 924, 244 )
 texture = ExtResource( 15 )
@@ -228,6 +241,13 @@ texture = ExtResource( 15 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lampe/Area2D"]
 position = Vector2( 993, 301 )
 shape = SubResource( 2 )
+
+[node name="Hint" type="Sprite" parent="Lampe"]
+material = SubResource( 13 )
+position = Vector2( 999, 300 )
+scale = Vector2( 1.4, 0.685714 )
+texture = SubResource( 14 )
+script = ExtResource( 30 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( 650, 359 )
@@ -496,6 +516,10 @@ offset = Vector2( 563.186, -189.329 )
 
 [node name="SceneTransitionColorRect" parent="." instance=ExtResource( 29 )]
 unique_name_in_owner = true
+margin_left = -19.0
+margin_top = 20.0
+margin_right = -19.0
+margin_bottom = 20.0
 
 [connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]
 [connection signal="timeout" from="NewDistractionTriggerTimer" to="." method="_on_NewDistractionTriggerTimer_timeout"]
