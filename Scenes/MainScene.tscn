@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
-[ext_resource path="res://Textures/chambre.png" type="Texture" id=2]
+[ext_resource path="res://Textures/decors/chambre.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/SleepFeedbacks.gd" type="Script" id=3]
+[ext_resource path="res://Textures/decors/decors.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/Distractions/Window/WindowDragable.gd" type="Script" id=5]
-[ext_resource path="res://Textures/decors.png" type="Texture" id=6]
+[ext_resource path="res://Textures/decors/fenetre.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/Distractions/Window/WindowDistraction.gd" type="Script" id=7]
 [ext_resource path="res://Sounds/Retro Cinematic Wind 02.wav" type="AudioStream" id=8]
-[ext_resource path="res://Textures/fenetre.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 209.174, 45.1784 )
@@ -17,7 +17,7 @@ script = ExtResource( 1 )
 
 [node name="Outside" type="Sprite" parent="."]
 position = Vector2( 426, 165 )
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -58,7 +58,7 @@ shape = SubResource( 1 )
 
 [node name="Window" type="Sprite" parent="Window/WindowDragable"]
 position = Vector2( 350, 140 )
-texture = ExtResource( 9 )
+texture = ExtResource( 6 )
 
 [node name="source_Area2D" type="Area2D" parent="Window/WindowDragable/Window"]
 position = Vector2( 161, -47 )
