@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=78 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Textures/decors/chambre.png" type="Texture" id=2]
@@ -37,6 +37,7 @@
 [ext_resource path="res://Scripts/Distractions/Plant/BottleDragable.gd" type="Script" id=35]
 [ext_resource path="res://Textures/triggers/bouteille.png" type="Texture" id=36]
 [ext_resource path="res://Textures/triggers/PLANTE/plante.png" type="Texture" id=37]
+[ext_resource path="res://Textures/meubles/chat.png" type="Texture" id=38]
 
 [sub_resource type="Environment" id=3]
 background_mode = 4
@@ -468,22 +469,18 @@ scale = Vector2( 0.903146, 0.903146 )
 [node name="light05" parent="Garland/lightsContainer" instance=ExtResource( 32 )]
 position = Vector2( 817, 75 )
 rotation = 0.152351
-scale = Vector2( 1, 1 )
 
 [node name="light04" parent="Garland/lightsContainer" instance=ExtResource( 32 )]
 position = Vector2( 860, 95 )
 rotation = -0.29098
-scale = Vector2( 1, 1 )
 
 [node name="light03" parent="Garland/lightsContainer" instance=ExtResource( 32 )]
 position = Vector2( 909, 93 )
 rotation = -0.462512
-scale = Vector2( 1, 1 )
 
 [node name="light02" parent="Garland/lightsContainer" instance=ExtResource( 32 )]
 position = Vector2( 962, 84.9999 )
 rotation = -0.691411
-scale = Vector2( 1, 1 )
 
 [node name="light01" parent="Garland/lightsContainer" instance=ExtResource( 32 )]
 
@@ -600,6 +597,10 @@ texture = ExtResource( 36 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottle/BottleSprite/Area2D"]
 position = Vector2( 0, -2 )
 shape = SubResource( 40 )
+
+[node name="Cat" type="Sprite" parent="."]
+position = Vector2( 1193, 623 )
+texture = ExtResource( 38 )
 
 [connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]
 [connection signal="timeout" from="NewDistractionTriggerTimer" to="." method="_on_NewDistractionTriggerTimer_timeout"]
