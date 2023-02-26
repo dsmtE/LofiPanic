@@ -7,7 +7,7 @@
 [ext_resource path="res://Scripts/Distractions/Window/WindowDragable.gd" type="Script" id=5]
 [ext_resource path="res://Textures/decors/fenetre.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/Distractions/Window/WindowDistraction.gd" type="Script" id=7]
-[ext_resource path="res://Sounds/Retro Cinematic Wind 02.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sounds/bourdon_sound.wav" type="AudioStream" id=8]
 [ext_resource path="res://Textures/meubles/tapis.png" type="Texture" id=9]
 [ext_resource path="res://Textures/meubles/table_chevet.png" type="Texture" id=10]
 [ext_resource path="res://Textures/meubles/lit.png" type="Texture" id=11]
