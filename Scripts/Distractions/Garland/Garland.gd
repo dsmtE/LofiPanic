@@ -1,10 +1,11 @@
 extends Distraction
 
 onready var audio_stream : AudioStreamPlayer = $AudioStreamPlayer
-onready var tween : Tween = $Tween
 onready var LightsContainer := $lightsContainer
 
 var lights: Array = []
+
+export(float) var panic_threashold = 0.5
 
 func _ready():
 	randomize()
@@ -17,7 +18,7 @@ func start_panic():
 	audio_stream.play()
 	
 	for light in lights:
-		if randf() > 0.1:
+		if randf() > panic_threashold:
 			light.start_panic()
 
 func _end_panic():

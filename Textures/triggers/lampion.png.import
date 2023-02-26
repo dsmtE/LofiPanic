@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/decors.png-e8a600658b331c2c73611a1f7a450225.stex"
+path="res://.import/lampion.png-c17d3ba4b079dfcd0cc6078651d1040a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/decors.png"
-dest_files=[ "res://.import/decors.png-e8a600658b331c2c73611a1f7a450225.stex" ]
+source_file="res://Textures/triggers/lampion.png"
+dest_files=[ "res://.import/lampion.png-c17d3ba4b079dfcd0cc6078651d1040a.stex" ]
 
 [params]
 
