@@ -5,6 +5,8 @@ onready var window: Node2D = $WindowDragable/Window
 onready var tween: Tween = $WindowDragable/Tween
 onready var windowDragable: Dragable = $WindowDragable
 
+onready var bourdon_anim_player: AnimationPlayer = $BourdonAnimatedSprite/AnimationPlayer
+
 export(Vector2) var open_position
 export(float) var open_rotation
 
@@ -16,6 +18,8 @@ func _ready():
 	closed_position = window.position
 	closed_rotation = window.rotation
 	
+	bourdon_anim_player.play("Idle")
+	
 func start_panic():
 	.start_panic()
 	windowDragable.draggable = true
@@ -24,6 +28,9 @@ func start_panic():
 	tween.interpolate_property(window, 'rotation_degrees', null, open_rotation,
 		0.4, Tween.EASE_OUT, Tween.EASE_IN, 0.1)
 	tween.start()
+	
+	bourdon_anim_player.play("OpenWindow")
+	bourdon_anim_player.queue("Idle")
 	
 	audio_stream.play()
 

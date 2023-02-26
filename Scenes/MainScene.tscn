@@ -1,5 +1,6 @@
 [gd_scene load_steps=78 format=2]
 
+
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Textures/decors/chambre.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/SleepFeedbacks.gd" type="Script" id=3]
@@ -33,6 +34,12 @@
 [ext_resource path="res://Shaders/screen_color_edge_hint.tres" type="Shader" id=31]
 [ext_resource path="res://Scenes/GarlandLight.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Textures/triggers/REVEIL/reveilHours.png" type="Texture" id=33]
+[ext_resource path="res://Textures/triggers/BOURDON/bourdon_3.png" type="Texture" id=34]
+[ext_resource path="res://Textures/triggers/BOURDON/bourdon_4.png" type="Texture" id=35]
+[ext_resource path="res://Textures/triggers/BOURDON/boudon_1.png" type="Texture" id=36]
+[ext_resource path="res://Textures/triggers/BOURDON/bourdon_2.png" type="Texture" id=37]
+[ext_resource path="res://Textures/triggers/BOURDON/bourdon_5.png" type="Texture" id=38]
+[ext_resource path="res://Textures/triggers/BOURDON/bourdon_6.png" type="Texture" id=39]
 [ext_resource path="res://Scripts/Distractions/Plant/PlantDistraction.gd" type="Script" id=34]
 [ext_resource path="res://Scripts/Distractions/Plant/BottleDragable.gd" type="Script" id=35]
 [ext_resource path="res://Textures/triggers/bouteille.png" type="Texture" id=36]
@@ -45,6 +52,61 @@ glow_enabled = true
 glow_intensity = 1.0
 glow_strength = 0.95
 glow_blend_mode = 1
+
+[sub_resource type="SpriteFrames" id=18]
+animations = [ {
+"frames": [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 38 ), ExtResource( 39 ) ],
+"loop": true,
+"name": "idle",
+"speed": 40.0
+} ]
+
+[sub_resource type="Animation" id=19]
+resource_name = "Idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.263591, 0.551355, 0.795745 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 440, 220 ), Vector2( 431.356, 217 ), Vector2( 423.726, 219.186 ), Vector2( 431.883, 217 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "OpenWindow"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 440, 220 ), Vector2( 464, 315 ), Vector2( 431, 160 ), Vector2( 440, 220 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 440, 220 ) ]
+}
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 209.174, 45.1784 )
@@ -282,6 +344,18 @@ script = ExtResource( 7 )
 open_position = Vector2( 330, -40 )
 open_rotation = 3.0
 
+[node name="BourdonAnimatedSprite" type="AnimatedSprite" parent="Window"]
+position = Vector2( 440, 220 )
+frames = SubResource( 18 )
+animation = "idle"
+frame = 1
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Window/BourdonAnimatedSprite"]
+anims/Idle = SubResource( 19 )
+anims/OpenWindow = SubResource( 20 )
+anims/RESET = SubResource( 21 )
+
 [node name="WindowDragable" type="Node2D" parent="Window"]
 script = ExtResource( 5 )
 source_area2D_node_path = "Window/source_Area2D"
@@ -369,7 +443,6 @@ __meta__ = {
 
 [node name="Lampe" type="Node2D" parent="."]
 script = ExtResource( 13 )
-hint_node_path = "Hint"
 
 [node name="Tween" type="Tween" parent="Lampe"]
 
@@ -410,7 +483,6 @@ process_material = SubResource( 4 )
 [node name="plafonier" type="Node2D" parent="."]
 script = ExtResource( 13 )
 level = 3
-hint_node_path = "Hint"
 
 [node name="Tween" type="Tween" parent="plafonier"]
 
