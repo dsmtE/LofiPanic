@@ -13,6 +13,8 @@ onready var _new_distraction_trigger_timer: Timer = $"%NewDistractionTriggerTime
 
 onready var _sleep_feedbacks: SleepFeedbacks = $"%SleepFeedbacks"
 
+onready var clock: Clock = $"%AlarmClock"
+
 onready var _scene_transition: SceneTransition = $"%SceneTransitionColorRect"
 
 var _distractions_per_level: Array = []
@@ -47,7 +49,6 @@ func _ready():
 		
 	print_debug(_distractions_per_level)
 	_start_game()
-
 
 func _start_game():
 	_sleep_health = 100.0
@@ -119,6 +120,7 @@ func _on_LevelTimer_timeout():
 
 func _start_next_level():
 	_current_level += 1
+	clock.increment_hour()
 	_current_pool_of_distractions.append_array(_distractions_per_level[0])
 	
 	print_debug("Start next level : %d" % _current_level)

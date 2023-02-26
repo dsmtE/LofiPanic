@@ -2,12 +2,11 @@ extends Distraction
 
 class_name Clock
 
-# TODO : Handle sound loop from script if needed 
-# (currently, loop is handled from the Import settings of the sound files)
-
 onready var audio_stream : AudioStreamPlayer = $AudioStreamPlayer
 onready var tween : Tween = $Tween
 onready var sprite : Sprite = $Sprite
+onready var hours_sprite : Sprite = $Sprite/Hours
+onready var hint_sprite: Hint = $Hint
 
 export var shake: float = 4
 export var shake_duration_center: float = 0.05
@@ -26,18 +25,21 @@ func _ready():
 		)
 	tween.repeat = true
 
-func _process(_delta):
-	# TODO : 
-	pass
+func increment_hour():
+	hours_sprite.frame += 2
 
 func start_panic():
 	.start_panic()
 	audio_stream.play()
 	tween.start()
-	
+	hint_sprite.start_panic()
+
+func _end_panic():
+	._end_panic()
+	hint_sprite.end_panic()
+	audio_stream.stop()
+	tween.stop_all()
+		
 func _on_Area2D_input_event(_viewport, event, _shape_idx):
-	var mouse_event := event as InputEventMouseButton
-	if (mouse_event && mouse_event.pressed && mouse_event.button_index == BUTTON_LEFT):
-		audio_stream.stop()
-		tween.stop_all()
+	if (event is InputEventMouseButton && event.pressed && event.button_index == BUTTON_LEFT):
 		_end_panic()
