@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=79 format=2]
 
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
@@ -45,6 +45,7 @@
 [ext_resource path="res://Textures/triggers/bouteille.png" type="Texture" id=36]
 [ext_resource path="res://Textures/triggers/PLANTE/plante.png" type="Texture" id=37]
 [ext_resource path="res://Textures/meubles/chat.png" type="Texture" id=38]
+[ext_resource path="res://Scenes/phone.tscn" type="PackedScene" id=39]
 
 [sub_resource type="Environment" id=3]
 background_mode = 4
@@ -673,6 +674,9 @@ shape = SubResource( 40 )
 [node name="Cat" type="Sprite" parent="."]
 position = Vector2( 1193, 623 )
 texture = ExtResource( 38 )
+
+[node name="phone" parent="." instance=ExtResource( 39 )]
+position = Vector2( 635, 521 )
 
 [connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]
 [connection signal="timeout" from="NewDistractionTriggerTimer" to="." method="_on_NewDistractionTriggerTimer_timeout"]

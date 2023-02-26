@@ -1,0 +1,150 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Sounds/Retro Event Acute 08.wav" type="AudioStream" id=1]
+[ext_resource path="res://Scripts/phone.gd" type="Script" id=2]
+[ext_resource path="res://Textures/Point.png" type="Texture" id=3]
+[ext_resource path="res://Textures/triggers/portable_off.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/PhonePasswordButton.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/phonePassword.gd" type="Script" id=6]
+[ext_resource path="res://Textures/popup.png" type="Texture" id=7]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 18.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "popup_appear"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="phone" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+pitch_scale = 1.26
+
+[node name="PasswordPad" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.92549 )
+position = Vector2( 168, 50 )
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 7 )
+script = ExtResource( 6 )
+
+[node name="Buttons" type="Node2D" parent="PasswordPad"]
+position = Vector2( -0.625, -7.5 )
+
+[node name="Button0" type="Sprite" parent="PasswordPad/Buttons"]
+position = Vector2( -20.2084, -34.1667 )
+texture = ExtResource( 3 )
+
+[node name="Area2D0" type="Area2D" parent="PasswordPad/Buttons/Button0"]
+script = ExtResource( 5 )
+
+[node name="Point0" type="CollisionShape2D" parent="PasswordPad/Buttons/Button0/Area2D0"]
+shape = SubResource( 1 )
+
+[node name="Button1" type="Sprite" parent="PasswordPad/Buttons"]
+position = Vector2( 25.625, -34.1667 )
+texture = ExtResource( 3 )
+
+[node name="Area2D1" type="Area2D" parent="PasswordPad/Buttons/Button1"]
+script = ExtResource( 5 )
+
+[node name="Point1" type="CollisionShape2D" parent="PasswordPad/Buttons/Button1/Area2D1"]
+shape = SubResource( 1 )
+
+[node name="Button2" type="Sprite" parent="PasswordPad/Buttons"]
+position = Vector2( 69.7916, -33.3333 )
+texture = ExtResource( 3 )
+
+[node name="Area2D2" type="Area2D" parent="PasswordPad/Buttons/Button2"]
+script = ExtResource( 5 )
+
+[node name="Point2" type="CollisionShape2D" parent="PasswordPad/Buttons/Button2/Area2D2"]
+shape = SubResource( 1 )
+
+[node name="Button3" type="Sprite" parent="PasswordPad/Buttons"]
+position = Vector2( -20.2084, 9.16667 )
+texture = ExtResource( 3 )
+
+[node name="Area2D3" type="Area2D" parent="PasswordPad/Buttons/Button3"]
+script = ExtResource( 5 )
+
+[node name="Point3" type="CollisionShape2D" parent="PasswordPad/Buttons/Button3/Area2D3"]
+shape = SubResource( 1 )
+
+[node name="Button4" type="Sprite" parent="PasswordPad/Buttons"]
+position = Vector2( 23.9583, 10 )
+texture = ExtResource( 3 )
+
+[node name="Area2D4" type="Area2D" parent="PasswordPad/Buttons/Button4"]
+script = ExtResource( 5 )
+
+[node name="Point4" type="CollisionShape2D" parent="PasswordPad/Buttons/Button4/Area2D4"]
+shape = SubResource( 1 )
+
+[node name="Button5" type="Sprite" parent="PasswordPad/Buttons"]
+position = Vector2( 70.625, 10 )
+texture = ExtResource( 3 )
+
+[node name="Area2D5" type="Area2D" parent="PasswordPad/Buttons/Button5"]
+script = ExtResource( 5 )
+
+[node name="Point5" type="CollisionShape2D" parent="PasswordPad/Buttons/Button5/Area2D5"]
+shape = SubResource( 1 )
+
+[node name="Button6" type="Sprite" parent="PasswordPad/Buttons"]
+position = Vector2( -19.375, 53.3333 )
+texture = ExtResource( 3 )
+
+[node name="Area2D6" type="Area2D" parent="PasswordPad/Buttons/Button6"]
+script = ExtResource( 5 )
+
+[node name="Point6" type="CollisionShape2D" parent="PasswordPad/Buttons/Button6/Area2D6"]
+shape = SubResource( 1 )
+
+[node name="Button7" type="Sprite" parent="PasswordPad/Buttons"]
+position = Vector2( 24.7916, 53.3333 )
+texture = ExtResource( 3 )
+
+[node name="Area2D7" type="Area2D" parent="PasswordPad/Buttons/Button7"]
+script = ExtResource( 5 )
+
+[node name="Point7" type="CollisionShape2D" parent="PasswordPad/Buttons/Button7/Area2D7"]
+shape = SubResource( 1 )
+
+[node name="Button8" type="Sprite" parent="PasswordPad/Buttons"]
+position = Vector2( 70, 53.333 )
+texture = ExtResource( 3 )
+
+[node name="Area2D8" type="Area2D" parent="PasswordPad/Buttons/Button8"]
+script = ExtResource( 5 )
+
+[node name="Point8" type="CollisionShape2D" parent="PasswordPad/Buttons/Button8/Area2D8"]
+shape = SubResource( 1 )
+
+[node name="Line2D" type="Line2D" parent="PasswordPad"]
+points = PoolVector2Array( 0, 0 )
+default_color = Color( 1, 1, 1, 1 )
+texture_mode = 2
+joint_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../PasswordPad")
+anims/popup_appear = SubResource( 2 )
