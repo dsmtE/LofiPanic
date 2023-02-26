@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=2]
+[gd_scene load_steps=88 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Textures/decors/chambre.png" type="Texture" id=2]
@@ -268,56 +268,6 @@ shader_param/blend = 0.704
 lossy_quality = 1.0
 size = Vector2( 20, 70 )
 
-[sub_resource type="Gradient" id=5]
-offsets = PoolRealArray( 0, 0.155172, 0.814176, 1 )
-colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0.847059, 0.65098, 0.32549, 0 )
-
-[sub_resource type="GradientTexture" id=6]
-gradient = SubResource( 5 )
-width = 32
-
-[sub_resource type="Curve" id=7]
-min_value = -4.0
-max_value = 4.0
-_data = [ Vector2( 0.0030722, 0.00909102 ), 0.0, 0.0, 0, 0, Vector2( 0.0537634, -2.47273 ), 0.0, 0.0, 0, 0, Vector2( 0.208909, 2.4 ), 0.0, 0.0, 0, 0, Vector2( 0.227343, -2.4 ), 0.0, 0.0, 0, 0, Vector2( 0.351767, 2.61818 ), 0.0, 0.0, 0, 0, Vector2( 0.417819, -1.81818 ), 0.0, 0.0, 0, 0, Vector2( 0.534562, -0.263636 ), 0.0, 0.0, 0, 0, Vector2( 0.542243, -3.41818 ), 0.0, 0.0, 0, 0, Vector2( 0.602151, 2.98182 ), 0.0, 0.0, 0, 0, Vector2( 0.72043, -2.47273 ), 0.0, 0.0, 0, 0, Vector2( 0.854071, 1.89091 ), 0.0, 0.0, 0, 0, Vector2( 0.996928, -0.0454545 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=8]
-width = 64
-curve = SubResource( 7 )
-
-[sub_resource type="Curve" id=9]
-min_value = -2.23517e-10
-max_value = 0.01
-_data = [ Vector2( 0, 0 ), 0.0, 0.0121845, 0, 1, Vector2( 0.130568, 0.00159091 ), 0.0, 0.0, 0, 0, Vector2( 0.385561, 0.000590909 ), 0.0, 0.0, 0, 0, Vector2( 0.545315, 0.00659091 ), 0.0, 0.0, 0, 0, Vector2( 0.680492, 0.0005 ), 0.0, 0.0, 0, 0, Vector2( 0.892473, 0.00413636 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -0.0384682, 0.0, 1, 0 ]
-
-[sub_resource type="CurveTexture" id=10]
-width = 64
-curve = SubResource( 9 )
-
-[sub_resource type="ParticlesMaterial" id=4]
-lifetime_randomness = 0.18
-emission_shape = 2
-emission_box_extents = Vector3( 700, 400, 1 )
-flag_disable_z = true
-direction = Vector3( 0, 0, 0 )
-spread = 180.0
-gravity = Vector3( 0, 0.2, 0 )
-initial_velocity = 10.0
-initial_velocity_random = 1.0
-orbit_velocity = 0.0
-orbit_velocity_random = 1.0
-orbit_velocity_curve = SubResource( 10 )
-linear_accel_random = 0.72
-linear_accel_curve = SubResource( 8 )
-damping = 0.5
-damping_random = 0.2
-angle = 33.9
-angle_random = 1.0
-scale = 2.5
-scale_random = 1.0
-color = Color( 2, 1.5, 1, 1 )
-color_ramp = SubResource( 6 )
-
 [sub_resource type="ShaderMaterial" id=12]
 shader = ExtResource( 27 )
 shader_param/edge_color = Color( 1.30196, 1.30196, 1.30196, 1 )
@@ -342,6 +292,20 @@ shader_param/blend = 0.35
 [sub_resource type="CapsuleShape2D" id=40]
 radius = 20.0
 height = 80.0
+
+[sub_resource type="Curve" id=9]
+min_value = -2.23517e-10
+max_value = 0.01
+_data = [ Vector2( 0, 0 ), 0.0, 0.0121845, 0, 1, Vector2( 0.130568, 0.00159091 ), 0.0, 0.0, 0, 0, Vector2( 0.385561, 0.000590909 ), 0.0, 0.0, 0, 0, Vector2( 0.545315, 0.00659091 ), 0.0, 0.0, 0, 0, Vector2( 0.680492, 0.0005 ), 0.0, 0.0, 0, 0, Vector2( 0.892473, 0.00413636 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -0.0384682, 0.0, 1, 0 ]
+
+[sub_resource type="Curve" id=7]
+min_value = -4.0
+max_value = 4.0
+_data = [ Vector2( 0.0030722, 0.00909102 ), 0.0, 0.0, 0, 0, Vector2( 0.0537634, -2.47273 ), 0.0, 0.0, 0, 0, Vector2( 0.208909, 2.4 ), 0.0, 0.0, 0, 0, Vector2( 0.227343, -2.4 ), 0.0, 0.0, 0, 0, Vector2( 0.351767, 2.61818 ), 0.0, 0.0, 0, 0, Vector2( 0.417819, -1.81818 ), 0.0, 0.0, 0, 0, Vector2( 0.534562, -0.263636 ), 0.0, 0.0, 0, 0, Vector2( 0.542243, -3.41818 ), 0.0, 0.0, 0, 0, Vector2( 0.602151, 2.98182 ), 0.0, 0.0, 0, 0, Vector2( 0.72043, -2.47273 ), 0.0, 0.0, 0, 0, Vector2( 0.854071, 1.89091 ), 0.0, 0.0, 0, 0, Vector2( 0.996928, -0.0454545 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0, 0.155172, 0.814176, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0.847059, 0.65098, 0.32549, 0 )
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
@@ -511,13 +475,6 @@ position = Vector2( 999, 300 )
 scale = Vector2( 1.4, 0.685714 )
 texture = SubResource( 14 )
 script = ExtResource( 30 )
-
-[node name="Particles2D" type="Particles2D" parent="."]
-position = Vector2( 650, 359 )
-amount = 200
-lifetime = 20.0
-randomness = 1.0
-process_material = SubResource( 4 )
 
 [node name="plafonier" type="Node2D" parent="."]
 script = ExtResource( 13 )
@@ -720,6 +677,32 @@ texture = ExtResource( 38 )
 
 [node name="SceneTransitionColorRect" parent="." instance=ExtResource( 29 )]
 unique_name_in_owner = true
+
+[node name="Particles2D" type="CPUParticles2D" parent="."]
+position = Vector2( 650, 359 )
+amount = 200
+lifetime = 20.0
+randomness = 1.0
+lifetime_randomness = 0.18
+emission_shape = 2
+emission_rect_extents = Vector2( 700, 400 )
+direction = Vector2( 0, 0 )
+spread = 180.0
+gravity = Vector2( 0, 0.2 )
+initial_velocity = 10.0
+initial_velocity_random = 1.0
+orbit_velocity_random = 1.0
+orbit_velocity_curve = SubResource( 9 )
+linear_accel_random = 0.72
+linear_accel_curve = SubResource( 7 )
+damping = 0.5
+damping_random = 0.2
+angle = 33.9
+angle_random = 1.0
+scale_amount = 2.5
+scale_amount_random = 1.0
+color = Color( 2, 1.5, 1, 1 )
+color_ramp = SubResource( 5 )
 
 [connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]
 [connection signal="timeout" from="NewDistractionTriggerTimer" to="." method="_on_NewDistractionTriggerTimer_timeout"]
