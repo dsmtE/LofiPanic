@@ -32,7 +32,6 @@ func _ready():
 		)
 	tween.repeat = true
 	popup.connect("phone_unlocked", self, "_on_phone_unlocked")
-	start_panic()
 
 func start_panic():
 	.start_panic()
