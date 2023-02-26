@@ -237,6 +237,7 @@ open_rotation = 3.0
 position = Vector2( 440, 220 )
 frames = SubResource( 18 )
 animation = "idle"
+frame = 5
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Window/BourdonAnimatedSprite"]
@@ -535,10 +536,6 @@ texture = ExtResource( 36 )
 position = Vector2( 679, 688 )
 texture = ExtResource( 41 )
 
-[node name="phone" parent="." instance=ExtResource( 39 )]
-position = Vector2( 635, 521 )
-level = 3
-
 [node name="Sac" type="Sprite" parent="."]
 position = Vector2( 1230, 533 )
 texture = ExtResource( 42 )
@@ -546,9 +543,6 @@ texture = ExtResource( 42 )
 [node name="Cat" type="Sprite" parent="."]
 position = Vector2( 1179, 657 )
 texture = ExtResource( 38 )
-
-[node name="SceneTransitionColorRect" parent="." instance=ExtResource( 29 )]
-unique_name_in_owner = true
 
 [node name="Particles2D" type="CPUParticles2D" parent="."]
 position = Vector2( 650, 359 )
@@ -586,6 +580,13 @@ centered = false
 material = SubResource( 68 )
 texture = ExtResource( 35 )
 centered = false
+
+[node name="phone" parent="." instance=ExtResource( 39 )]
+position = Vector2( 635, 521 )
+level = 3
+
+[node name="SceneTransitionColorRect" parent="." instance=ExtResource( 29 )]
+unique_name_in_owner = true
 
 [connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]
 [connection signal="timeout" from="NewDistractionTriggerTimer" to="." method="_on_NewDistractionTriggerTimer_timeout"]

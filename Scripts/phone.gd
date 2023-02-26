@@ -7,7 +7,8 @@ class_name Phone
 
 onready var audio_stream : AudioStreamPlayer = $AudioStreamPlayer
 onready var tween : Tween = $Tween
-onready var sprite : Sprite = $Sprite
+onready var on_sprite : Sprite = $OnSprite
+onready var off_sprite : Sprite = $OffSprite
 onready var popup_animator: AnimationPlayer = $AnimationPlayer
 onready var popup = $PasswordPad
 
@@ -17,9 +18,12 @@ export var shake_duration_amp: float = 0.01
 export var shake_count: float = 15
 
 func _ready():
+	on_sprite.visible = false
+	off_sprite.visible = true
+	
 	for i in shake_count:
 		tween.interpolate_property(
-			sprite,
+			on_sprite,
 			"position",
 			null,
 			Vector2(rand_range(-shake, shake),
@@ -28,17 +32,24 @@ func _ready():
 		)
 	tween.repeat = true
 	popup.connect("phone_unlocked", self, "_on_phone_unlocked")
+	start_panic()
 
 func start_panic():
 	.start_panic()
+	on_sprite.visible = true
+	off_sprite.visible = false
 	audio_stream.play()
 	tween.start()
 	popup_animator.play("popup_appear")
 	popup.poping()
-	
-	
-func _on_phone_unlocked():
+
+func _end_panic():
+	._end_panic()
+	on_sprite.visible = false
+	off_sprite.visible = true
 	popup_animator.play_backwards("popup_appear")
 	audio_stream.stop()
 	tween.stop_all()
+	
+func _on_phone_unlocked():
 	_end_panic()
