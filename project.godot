@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Distractions/Garland/GarlandLight.gd"
 }, {
+"base": "ColorRect",
+"class": "SceneTransition",
+"language": "GDScript",
+"path": "res://Scripts/SceneTransition.gd"
+}, {
 "base": "Node",
 "class": "SleepFeedbacks",
 "language": "GDScript",
@@ -50,6 +55,7 @@ _global_script_class_icons={
 "Dragable": "",
 "GameManager": "",
 "GarlandLight": "",
+"SceneTransition": "",
 "SleepFeedbacks": "",
 "Utils": ""
 }
@@ -77,4 +83,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

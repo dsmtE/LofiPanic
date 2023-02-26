@@ -5,10 +5,15 @@ class_name GameManager
 export(float) var _min_distraction_wait_time = 2.0
 export(float) var _max_distraction_wait_time = 5.0
 
+export(String, FILE, "*.tscn") var _win_scene_path
+export(String, FILE, "*.tscn") var _lose_scene_path
+
 onready var _level_timer: Timer = $"%LevelTimer"
 onready var _new_distraction_trigger_timer: Timer = $"%NewDistractionTriggerTimer"
 
 onready var _sleep_feedbacks: SleepFeedbacks = $"%SleepFeedbacks"
+
+onready var _scene_transition: SceneTransition = $"%SceneTransitionColorRect"
 
 var _distractions_per_level: Array = []
 
@@ -121,10 +126,10 @@ func _start_next_level():
 
 
 func _win_game():
-	print_debug("GAME IS FINISHED AND WON BY THE PLAYER AT LEVEL %d" % _current_level)
+	_scene_transition.transition_to(_win_scene_path)
 
 func _lose_game():
-	get_tree().quit()
+	_scene_transition.transition_to(_lose_scene_path)
 
 
 

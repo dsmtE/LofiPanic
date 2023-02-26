@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Textures/decors/chambre.png" type="Texture" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://Textures/triggers/ordi_on.png" type="Texture" id=24]
 [ext_resource path="res://Textures/triggers/ordi_off.png" type="Texture" id=25]
 [ext_resource path="res://Textures/triggers/fx_ordi.png" type="Texture" id=26]
+[ext_resource path="res://Scenes/SceneTransition.tscn" type="PackedScene" id=27]
 
 [sub_resource type="Environment" id=3]
 background_mode = 4
@@ -95,6 +96,8 @@ radius = 22.0907
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
+_win_scene_path = "res://Scenes/Screens/WinScreen.tscn"
+_lose_scene_path = "res://Scenes/Screens/LoseScreen.tscn"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )
@@ -463,6 +466,9 @@ anchor_top = 0.85
 anchor_right = 0.9
 anchor_bottom = 0.95
 mouse_filter = 2
+
+[node name="SceneTransitionColorRect" parent="." instance=ExtResource( 27 )]
+unique_name_in_owner = true
 
 [connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]
 [connection signal="timeout" from="NewDistractionTriggerTimer" to="." method="_on_NewDistractionTriggerTimer_timeout"]
