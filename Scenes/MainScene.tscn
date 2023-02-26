@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=2]
+[gd_scene load_steps=91 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Textures/decors/chambre.png" type="Texture" id=2]
@@ -33,6 +33,7 @@
 [ext_resource path="res://Shaders/screen_color_edge_hint.tres" type="Shader" id=31]
 [ext_resource path="res://Scenes/GarlandLight.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Textures/triggers/REVEIL/reveilHours.png" type="Texture" id=33]
+[ext_resource path="res://Sounds/alarmClock.wav" type="AudioStream" id=34]
 [ext_resource path="res://Textures/triggers/bouteille.png" type="Texture" id=36]
 [ext_resource path="res://Textures/triggers/PLANTE/plante.png" type="Texture" id=37]
 [ext_resource path="res://Textures/meubles/chat.png" type="Texture" id=38]
@@ -652,6 +653,8 @@ position = Vector2( 1144, 235 )
 script = ExtResource( 20 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AlarmClock"]
+stream = ExtResource( 34 )
+volume_db = -5.0
 
 [node name="Tween" type="Tween" parent="AlarmClock"]
 
