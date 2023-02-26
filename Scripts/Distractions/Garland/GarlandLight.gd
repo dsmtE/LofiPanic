@@ -6,6 +6,7 @@ signal panic_ended
 
 onready var tween : Tween = $Tween
 onready var area2D: Area2D = $Area2D
+onready var hint_sprite: Hint = $Hint
 
 var is_in_panic: bool = false
 
@@ -32,11 +33,16 @@ func start_panic():
 	is_in_panic = true
 	generate_tween_flickering()
 	tween.start()
+	hint_sprite.start_panic()
 
+func _end_panic():
+	tween.remove_all()
+	toggle_light(true)
+	emit_signal("panic_ended", self)
+	hint_sprite.end_panic()
+	
 func _on_Area2D_input_event(_viewport, event, _shape_idx):
 	if (event is InputEventMouseButton && event.pressed && event.button_index == BUTTON_LEFT):
 		if is_in_panic:
 			is_in_panic = false
-			tween.remove_all()
-			toggle_light(true)
-			emit_signal("panic_ended", self)
+			_end_panic()
