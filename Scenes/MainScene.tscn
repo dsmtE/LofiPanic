@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Textures/decors/chambre.png" type="Texture" id=2]
@@ -26,8 +26,10 @@
 [ext_resource path="res://Textures/triggers/ordi_on.png" type="Texture" id=24]
 [ext_resource path="res://Textures/triggers/ordi_off.png" type="Texture" id=25]
 [ext_resource path="res://Textures/triggers/fx_ordi.png" type="Texture" id=26]
+[ext_resource path="res://Shaders/alpha_edge_outline.tres" type="Shader" id=27]
 [ext_resource path="res://Textures/triggers/mini_bulle.png" type="Texture" id=28]
 [ext_resource path="res://Scenes/SceneTransition.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Scripts/Hint.gd" type="Script" id=30]
 
 [sub_resource type="Environment" id=3]
 background_mode = 4
@@ -92,6 +94,12 @@ scale_random = 1.0
 color = Color( 2, 1.5, 1, 1 )
 color_ramp = SubResource( 6 )
 
+[sub_resource type="ShaderMaterial" id=12]
+shader = ExtResource( 27 )
+shader_param/edge_color = Color( 1.30196, 1.30196, 1.30196, 1 )
+shader_param/threshold = 1.0
+shader_param/blend = 0.197
+
 [sub_resource type="CircleShape2D" id=11]
 radius = 22.0907
 
@@ -104,11 +112,8 @@ _lose_scene_path = "res://Scenes/Screens/LoseScreen.tscn"
 environment = SubResource( 3 )
 
 [node name="Outside" type="Sprite" parent="."]
-position = Vector2( 386, 184 )
+position = Vector2( 391, 221 )
 texture = ExtResource( 4 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="LevelTimer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -233,6 +238,7 @@ process_material = SubResource( 4 )
 
 [node name="plafonier" type="Node2D" parent="."]
 script = ExtResource( 13 )
+hint_node_path = "Hint"
 
 [node name="Tween" type="Tween" parent="plafonier"]
 
@@ -246,7 +252,6 @@ texture = ExtResource( 17 )
 centered = false
 
 [node name="On" type="Sprite" parent="plafonier"]
-visible = false
 modulate = Color( 1.5, 1.5, 1.5, 1 )
 texture = ExtResource( 18 )
 centered = false
@@ -262,6 +267,12 @@ position = Vector2( -92, -393 )
 position = Vector2( 91.5, 393 )
 rotation = -0.652753
 shape = SubResource( 2 )
+
+[node name="Hint" type="Sprite" parent="plafonier"]
+material = SubResource( 12 )
+position = Vector2( 92, 393 )
+texture = ExtResource( 19 )
+script = ExtResource( 30 )
 
 [node name="Garland" type="Node2D" parent="."]
 script = ExtResource( 21 )

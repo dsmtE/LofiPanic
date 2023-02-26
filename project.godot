@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Distractions/Garland/GarlandLight.gd"
 }, {
+"base": "Sprite",
+"class": "Hint",
+"language": "GDScript",
+"path": "res://Scripts/Hint.gd"
+}, {
 "base": "ColorRect",
 "class": "SceneTransition",
 "language": "GDScript",
@@ -55,6 +60,7 @@ _global_script_class_icons={
 "Dragable": "",
 "GameManager": "",
 "GarlandLight": "",
+"Hint": "",
 "SceneTransition": "",
 "SleepFeedbacks": "",
 "Utils": ""
