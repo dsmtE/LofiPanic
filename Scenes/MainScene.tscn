@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Textures/decors/chambre.png" type="Texture" id=2]
@@ -22,6 +22,10 @@
 [ext_resource path="res://Textures/triggers/lampion.png" type="Texture" id=20]
 [ext_resource path="res://Scripts/Distractions/Garland/Garland.gd" type="Script" id=21]
 [ext_resource path="res://Scripts/Distractions/Garland/GarlandLight.gd" type="Script" id=22]
+[ext_resource path="res://Scripts/Distractions/LaptopDistraction.gd" type="Script" id=23]
+[ext_resource path="res://Textures/triggers/ordi_on.png" type="Texture" id=24]
+[ext_resource path="res://Textures/triggers/ordi_off.png" type="Texture" id=25]
+[ext_resource path="res://Textures/triggers/fx_ordi.png" type="Texture" id=26]
 
 [sub_resource type="Environment" id=3]
 background_mode = 4
@@ -182,17 +186,6 @@ texture = ExtResource( 10 )
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="SleepFeedbacks" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource( 3 )
-
-[node name="ProgressBar" type="ProgressBar" parent="SleepFeedbacks"]
-anchor_left = 0.1
-anchor_top = 0.85
-anchor_right = 0.9
-anchor_bottom = 0.95
-mouse_filter = 2
 
 [node name="PANDA" type="Sprite" parent="."]
 position = Vector2( 770, 303 )
@@ -430,6 +423,46 @@ shape = SubResource( 11 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Laptop" type="Node2D" parent="."]
+script = ExtResource( 23 )
+
+[node name="Tween" type="Tween" parent="Laptop"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Laptop"]
+stream = ExtResource( 14 )
+volume_db = -8.0
+pitch_scale = 1.16
+
+[node name="OrdiOff" type="Sprite" parent="Laptop"]
+position = Vector2( 443, 604 )
+texture = ExtResource( 25 )
+
+[node name="OrdiOn" type="Sprite" parent="Laptop"]
+position = Vector2( 443, 604 )
+texture = ExtResource( 24 )
+
+[node name="FxOrdi" type="Sprite" parent="Laptop"]
+position = Vector2( 457, 580 )
+scale = Vector2( 1.16879, 1.1051 )
+texture = ExtResource( 26 )
+
+[node name="Area2D" type="Area2D" parent="Laptop"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Laptop/Area2D"]
+polygon = PoolVector2Array( 347, 621, 421, 582, 432, 504, 438, 500, 519, 572, 503, 651, 413, 705 )
+
+[node name="SleepFeedbacks" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource( 3 )
+
+[node name="ProgressBar" type="ProgressBar" parent="SleepFeedbacks"]
+visible = false
+anchor_left = 0.1
+anchor_top = 0.85
+anchor_right = 0.9
+anchor_bottom = 0.95
+mouse_filter = 2
 
 [connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]
 [connection signal="timeout" from="NewDistractionTriggerTimer" to="." method="_on_NewDistractionTriggerTimer_timeout"]
