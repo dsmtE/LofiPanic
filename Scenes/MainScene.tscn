@@ -36,7 +36,7 @@
 [ext_resource path="res://Sounds/alarmClock.wav" type="AudioStream" id=34]
 [ext_resource path="res://Textures/fx_multiply.jpg" type="Texture" id=35]
 [ext_resource path="res://Textures/triggers/bouteille.png" type="Texture" id=36]
-[ext_resource path="res://Textures/triggers/PLANTE/plante.png" type="Texture" id=37]
+[ext_resource path="res://Textures/meubles/plante01.png" type="Texture" id=37]
 [ext_resource path="res://Textures/meubles/chat.png" type="Texture" id=38]
 [ext_resource path="res://Scenes/phone.tscn" type="PackedScene" id=39]
 [ext_resource path="res://Textures/triggers/BOURDON/boudon_spritesheet.png" type="Texture" id=40]
@@ -237,7 +237,7 @@ open_rotation = 3.0
 position = Vector2( 440, 220 )
 frames = SubResource( 18 )
 animation = "idle"
-frame = 5
+frame = 3
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Window/BourdonAnimatedSprite"]
@@ -294,10 +294,8 @@ __meta__ = {
 }
 
 [node name="Plant" type="Sprite" parent="."]
-position = Vector2( 373, 253 )
+position = Vector2( 376, 233 )
 texture = ExtResource( 37 )
-hframes = 10
-vframes = 2
 
 [node name="Bed" type="Sprite" parent="."]
 position = Vector2( 719, 441 )
