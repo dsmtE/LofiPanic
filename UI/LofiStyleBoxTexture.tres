@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=2]
+
+[ext_resource path="res://Textures/UI/start_button.png" type="Texture" id=1]
+
+[resource]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 269, 118 )
+margin_left = 20.0476
+margin_right = 28.6395
+margin_top = 18.6156
+margin_bottom = 27.2075

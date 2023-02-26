@@ -17,10 +17,10 @@ centered = false
 [node name="PlayButton" type="Button" parent="."]
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 235.0
-margin_top = 482.0
-margin_right = -219.0
-margin_bottom = -182.0
+margin_left = 359.0
+margin_top = 559.0
+margin_right = -95.0
+margin_bottom = -102.0
 theme = ExtResource( 2 )
 text = "Play"
 
