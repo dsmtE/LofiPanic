@@ -6,6 +6,7 @@ onready var tween : Tween = $Tween
 onready var off_sprite: Sprite = $OrdiOff
 onready var on_sprite: Sprite = $OrdiOn
 onready var fx: Sprite = $FxOrdi
+onready var hint_sprite: Hint = $Hint
 
 func _ready():
 	randomize()
@@ -28,12 +29,14 @@ func toggle_light(state: bool):
 		
 func start_panic():
 	.start_panic()
+	hint_sprite.start_panic()
 	audio_stream.play()
 	generate_tween_flickering()
 	tween.start()
 	
 func _end_panic():
 	._end_panic()
+	hint_sprite.end_panic()
 	toggle_light(false)
 	audio_stream.stop()
 	tween.stop_all()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Textures/decors/chambre.png" type="Texture" id=2]
@@ -113,6 +113,15 @@ shader_param/blend = 0.197
 
 [sub_resource type="CircleShape2D" id=11]
 radius = 22.0907
+
+[sub_resource type="ShaderMaterial" id=15]
+shader = ExtResource( 27 )
+shader_param/edge_color = Color( 1.3, 1.3, 1.3, 1 )
+shader_param/threshold = 1.0
+shader_param/blend = 0.407
+
+[sub_resource type="CanvasItemMaterial" id=16]
+blend_mode = 1
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
@@ -479,7 +488,15 @@ texture = ExtResource( 25 )
 position = Vector2( 443, 604 )
 texture = ExtResource( 24 )
 
+[node name="Hint" type="Sprite" parent="Laptop"]
+material = SubResource( 15 )
+position = Vector2( 443, 604 )
+texture = ExtResource( 25 )
+script = ExtResource( 30 )
+
 [node name="FxOrdi" type="Sprite" parent="Laptop"]
+modulate = Color( 1, 1, 1, 0.572549 )
+material = SubResource( 16 )
 position = Vector2( 457, 580 )
 scale = Vector2( 1.16879, 1.1051 )
 texture = ExtResource( 26 )
