@@ -99,7 +99,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.263591, 0.551355, 0.795745 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 440, 220 ), Vector2( 431.356, 217 ), Vector2( 423.726, 219.186 ), Vector2( 431.883, 217 ) ]
+"values": [ Vector2( 560, 220 ), Vector2( 551.356, 217 ), Vector2( 543.726, 219.186 ), Vector2( 551.883, 217 ) ]
 }
 
 [sub_resource type="Animation" id=20]
@@ -115,7 +115,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.5, 1.1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 440, 220 ), Vector2( 464, 315 ), Vector2( 431, 160 ), Vector2( 440, 220 ) ]
+"values": [ Vector2( 540, 220 ), Vector2( 564, 315 ), Vector2( 531, 160 ), Vector2( 540, 220 ) ]
 }
 
 [sub_resource type="Animation" id=21]
@@ -374,7 +374,7 @@ open_rotation = 3.0
 position = Vector2( 440, 220 )
 frames = SubResource( 18 )
 animation = "idle"
-frame = 3
+frame = 2
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Window/BourdonAnimatedSprite"]
