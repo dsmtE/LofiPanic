@@ -468,6 +468,7 @@ __meta__ = {
 
 [node name="Lampe" type="Node2D" parent="."]
 script = ExtResource( 13 )
+hint_node_path = "Hint"
 
 [node name="Tween" type="Tween" parent="Lampe"]
 
@@ -507,6 +508,7 @@ process_material = SubResource( 4 )
 
 [node name="plafonier" type="Node2D" parent="."]
 script = ExtResource( 13 )
+hint_node_path = "Hint"
 
 [node name="Tween" type="Tween" parent="plafonier"]
 
