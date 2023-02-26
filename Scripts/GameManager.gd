@@ -130,7 +130,7 @@ func _on_LevelTimer_timeout():
 func _start_next_level():
 	_current_level += 1
 	clock.increment_hour()
-	_current_pool_of_distractions.append_array(_distractions_per_level[0])
+	_current_pool_of_distractions.append_array(_distractions_per_level[_current_level])
 	
 	print_debug("Start next level : %d" % _current_level)
 	print_debug("Pool of distractions at level %d : %s" % [_current_level , _current_pool_of_distractions])
