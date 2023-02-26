@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=2]
+[gd_scene load_steps=92 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Textures/decors/chambre.png" type="Texture" id=2]
@@ -34,6 +34,7 @@
 [ext_resource path="res://Scenes/GarlandLight.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Textures/triggers/REVEIL/reveilHours.png" type="Texture" id=33]
 [ext_resource path="res://Sounds/alarmClock.wav" type="AudioStream" id=34]
+[ext_resource path="res://Textures/fx_multiply.jpg" type="Texture" id=35]
 [ext_resource path="res://Textures/triggers/bouteille.png" type="Texture" id=36]
 [ext_resource path="res://Textures/triggers/PLANTE/plante.png" type="Texture" id=37]
 [ext_resource path="res://Textures/meubles/chat.png" type="Texture" id=38]
@@ -41,6 +42,7 @@
 [ext_resource path="res://Textures/triggers/BOURDON/boudon_spritesheet.png" type="Texture" id=40]
 [ext_resource path="res://Textures/meubles/mini_plante.png" type="Texture" id=41]
 [ext_resource path="res://Textures/meubles/sac_a_dos.png" type="Texture" id=42]
+[ext_resource path="res://Textures/fx_additif.jpg" type="Texture" id=43]
 
 [sub_resource type="Environment" id=3]
 background_mode = 4
@@ -307,6 +309,12 @@ _data = [ Vector2( 0.0030722, 0.00909102 ), 0.0, 0.0, 0, 0, Vector2( 0.0537634, 
 offsets = PoolRealArray( 0, 0.155172, 0.814176, 1 )
 colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0.847059, 0.65098, 0.32549, 0 )
 
+[sub_resource type="CanvasItemMaterial" id=69]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=68]
+blend_mode = 3
+
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
 _win_scene_path = "res://Scenes/Screens/WinScreen.tscn"
@@ -345,7 +353,7 @@ open_rotation = 3.0
 position = Vector2( 440, 220 )
 frames = SubResource( 18 )
 animation = "idle"
-frame = 1
+frame = 3
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Window/BourdonAnimatedSprite"]
@@ -703,6 +711,17 @@ scale_amount = 2.5
 scale_amount_random = 1.0
 color = Color( 2, 1.5, 1, 1 )
 color_ramp = SubResource( 5 )
+
+[node name="FxAdditif" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.466667 )
+material = SubResource( 69 )
+texture = ExtResource( 43 )
+centered = false
+
+[node name="FxMultiply" type="Sprite" parent="."]
+material = SubResource( 68 )
+texture = ExtResource( 35 )
+centered = false
 
 [connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]
 [connection signal="timeout" from="NewDistractionTriggerTimer" to="." method="_on_NewDistractionTriggerTimer_timeout"]
