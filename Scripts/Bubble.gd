@@ -17,12 +17,10 @@ func _ready():
 func update_feedback(value: float):
 	if !alive: return
 	
-	print(value)
 	if pop_threshold > value :
 		_pop_bubble()
 	
 func _pop_bubble():
-	print("pop")
 	tween.interpolate_property(
 			self,
 			"scale",
