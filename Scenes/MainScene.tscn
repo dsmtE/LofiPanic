@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Textures/decors/chambre.png" type="Texture" id=2]
@@ -19,6 +19,9 @@
 [ext_resource path="res://Textures/triggers/plafonier_off.png" type="Texture" id=17]
 [ext_resource path="res://Textures/triggers/plafonier_on.png" type="Texture" id=18]
 [ext_resource path="res://Textures/triggers/bouton_plafonier.png" type="Texture" id=19]
+[ext_resource path="res://Textures/triggers/lampion.png" type="Texture" id=20]
+[ext_resource path="res://Scripts/Distractions/Garland/Garland.gd" type="Script" id=21]
+[ext_resource path="res://Scripts/Distractions/Garland/GarlandLight.gd" type="Script" id=22]
 
 [sub_resource type="Environment" id=3]
 background_mode = 4
@@ -82,6 +85,9 @@ scale = 2.5
 scale_random = 1.0
 color = Color( 2, 1.5, 1, 1 )
 color_ramp = SubResource( 6 )
+
+[sub_resource type="CircleShape2D" id=11]
+radius = 22.0907
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
@@ -157,7 +163,7 @@ __meta__ = {
 }
 
 [node name="Bed" type="Sprite" parent="."]
-position = Vector2( 725, 452 )
+position = Vector2( 719, 441 )
 texture = ExtResource( 11 )
 __meta__ = {
 "_edit_lock_": true
@@ -189,8 +195,11 @@ anchor_bottom = 0.95
 mouse_filter = 2
 
 [node name="PANDA" type="Sprite" parent="."]
-position = Vector2( 780, 340 )
+position = Vector2( 770, 303 )
 texture = ExtResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Lampe" type="Node2D" parent="."]
 script = ExtResource( 13 )
@@ -256,6 +265,171 @@ position = Vector2( -92, -393 )
 position = Vector2( 91.5, 393 )
 rotation = -0.652753
 shape = SubResource( 2 )
+
+[node name="Garland" type="Node2D" parent="."]
+script = ExtResource( 21 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Garland"]
+stream = ExtResource( 14 )
+pitch_scale = 1.62
+
+[node name="lightsContainer" type="Node2D" parent="Garland"]
+
+[node name="light01" type="Sprite" parent="Garland/lightsContainer"]
+position = Vector2( 1008, 65 )
+rotation = -0.802178
+texture = ExtResource( 20 )
+hframes = 2
+frame = 1
+script = ExtResource( 22 )
+
+[node name="Tween" type="Tween" parent="Garland/lightsContainer/light01"]
+
+[node name="Area2D" type="Area2D" parent="Garland/lightsContainer/light01"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Garland/lightsContainer/light01/Area2D"]
+position = Vector2( -3, 3 )
+shape = SubResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="light02" type="Sprite" parent="Garland/lightsContainer"]
+position = Vector2( 962, 84.9999 )
+rotation = -0.691411
+texture = ExtResource( 20 )
+hframes = 2
+frame = 1
+script = ExtResource( 22 )
+
+[node name="Tween" type="Tween" parent="Garland/lightsContainer/light02"]
+
+[node name="Area2D" type="Area2D" parent="Garland/lightsContainer/light02"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Garland/lightsContainer/light02/Area2D"]
+position = Vector2( -3, 3 )
+shape = SubResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="light03" type="Sprite" parent="Garland/lightsContainer"]
+position = Vector2( 909, 93 )
+rotation = -0.462512
+texture = ExtResource( 20 )
+hframes = 2
+frame = 1
+script = ExtResource( 22 )
+
+[node name="Tween" type="Tween" parent="Garland/lightsContainer/light03"]
+
+[node name="Area2D" type="Area2D" parent="Garland/lightsContainer/light03"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Garland/lightsContainer/light03/Area2D"]
+position = Vector2( -3, 3 )
+shape = SubResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="light04" type="Sprite" parent="Garland/lightsContainer"]
+position = Vector2( 860, 95 )
+rotation = -0.29098
+texture = ExtResource( 20 )
+hframes = 2
+frame = 1
+script = ExtResource( 22 )
+
+[node name="Tween" type="Tween" parent="Garland/lightsContainer/light04"]
+
+[node name="Area2D" type="Area2D" parent="Garland/lightsContainer/light04"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Garland/lightsContainer/light04/Area2D"]
+position = Vector2( -3, 3 )
+shape = SubResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="light05" type="Sprite" parent="Garland/lightsContainer"]
+position = Vector2( 817, 75 )
+rotation = 0.152351
+texture = ExtResource( 20 )
+hframes = 2
+frame = 1
+script = ExtResource( 22 )
+
+[node name="Tween" type="Tween" parent="Garland/lightsContainer/light05"]
+
+[node name="Area2D" type="Area2D" parent="Garland/lightsContainer/light05"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Garland/lightsContainer/light05/Area2D"]
+position = Vector2( -3, 3 )
+shape = SubResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="light06" type="Sprite" parent="Garland/lightsContainer"]
+position = Vector2( 782, 46 )
+rotation = 0.419487
+scale = Vector2( 0.903146, 0.903146 )
+texture = ExtResource( 20 )
+hframes = 2
+frame = 1
+script = ExtResource( 22 )
+
+[node name="Tween" type="Tween" parent="Garland/lightsContainer/light06"]
+
+[node name="Area2D" type="Area2D" parent="Garland/lightsContainer/light06"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Garland/lightsContainer/light06/Area2D"]
+position = Vector2( -3, 3 )
+shape = SubResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="light07" type="Sprite" parent="Garland/lightsContainer"]
+position = Vector2( 757, 13 )
+rotation = 0.652209
+scale = Vector2( 0.785261, 0.818244 )
+texture = ExtResource( 20 )
+hframes = 2
+frame = 1
+script = ExtResource( 22 )
+
+[node name="Tween" type="Tween" parent="Garland/lightsContainer/light07"]
+
+[node name="Area2D" type="Area2D" parent="Garland/lightsContainer/light07"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Garland/lightsContainer/light07/Area2D"]
+position = Vector2( -3, 3 )
+shape = SubResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]
 [connection signal="timeout" from="NewDistractionTriggerTimer" to="." method="_on_NewDistractionTriggerTimer_timeout"]
