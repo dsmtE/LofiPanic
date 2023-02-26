@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=2]
+[gd_scene load_steps=92 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Textures/decors/chambre.png" type="Texture" id=2]
@@ -40,6 +40,8 @@
 [ext_resource path="res://Textures/meubles/chat.png" type="Texture" id=38]
 [ext_resource path="res://Scenes/phone.tscn" type="PackedScene" id=39]
 [ext_resource path="res://Textures/triggers/BOURDON/boudon_spritesheet.png" type="Texture" id=40]
+[ext_resource path="res://Textures/meubles/mini_plante.png" type="Texture" id=41]
+[ext_resource path="res://Textures/meubles/sac_a_dos.png" type="Texture" id=42]
 
 [sub_resource type="Environment" id=3]
 background_mode = 4
@@ -374,6 +376,7 @@ open_rotation = 3.0
 position = Vector2( 440, 220 )
 frames = SubResource( 18 )
 animation = "idle"
+frame = 4
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Window/BourdonAnimatedSprite"]
@@ -690,13 +693,21 @@ texture = ExtResource( 36 )
 position = Vector2( 0, -2 )
 shape = SubResource( 40 )
 
-[node name="Cat" type="Sprite" parent="."]
-position = Vector2( 1193, 623 )
-texture = ExtResource( 38 )
+[node name="SmallPlant" type="Sprite" parent="."]
+position = Vector2( 679, 688 )
+texture = ExtResource( 41 )
 
 [node name="phone" parent="." instance=ExtResource( 39 )]
 position = Vector2( 635, 521 )
 level = 3
+
+[node name="Sac" type="Sprite" parent="."]
+position = Vector2( 1230, 533 )
+texture = ExtResource( 42 )
+
+[node name="Cat" type="Sprite" parent="."]
+position = Vector2( 1179, 657 )
+texture = ExtResource( 38 )
 
 [node name="SceneTransitionColorRect" parent="." instance=ExtResource( 29 )]
 unique_name_in_owner = true
