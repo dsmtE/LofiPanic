@@ -1,5 +1,4 @@
-[gd_scene load_steps=79 format=2]
-
+[gd_scene load_steps=90 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Textures/decors/chambre.png" type="Texture" id=2]
@@ -34,18 +33,13 @@
 [ext_resource path="res://Shaders/screen_color_edge_hint.tres" type="Shader" id=31]
 [ext_resource path="res://Scenes/GarlandLight.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Textures/triggers/REVEIL/reveilHours.png" type="Texture" id=33]
-[ext_resource path="res://Textures/triggers/BOURDON/bourdon_3.png" type="Texture" id=34]
-[ext_resource path="res://Textures/triggers/BOURDON/bourdon_4.png" type="Texture" id=35]
-[ext_resource path="res://Textures/triggers/BOURDON/boudon_1.png" type="Texture" id=36]
-[ext_resource path="res://Textures/triggers/BOURDON/bourdon_2.png" type="Texture" id=37]
-[ext_resource path="res://Textures/triggers/BOURDON/bourdon_5.png" type="Texture" id=38]
-[ext_resource path="res://Textures/triggers/BOURDON/bourdon_6.png" type="Texture" id=39]
 [ext_resource path="res://Scripts/Distractions/Plant/PlantDistraction.gd" type="Script" id=34]
 [ext_resource path="res://Scripts/Distractions/Plant/BottleDragable.gd" type="Script" id=35]
 [ext_resource path="res://Textures/triggers/bouteille.png" type="Texture" id=36]
 [ext_resource path="res://Textures/triggers/PLANTE/plante.png" type="Texture" id=37]
 [ext_resource path="res://Textures/meubles/chat.png" type="Texture" id=38]
 [ext_resource path="res://Scenes/phone.tscn" type="PackedScene" id=39]
+[ext_resource path="res://Textures/triggers/BOURDON/boudon_spritesheet.png" type="Texture" id=40]
 
 [sub_resource type="Environment" id=3]
 background_mode = 4
@@ -54,9 +48,39 @@ glow_intensity = 1.0
 glow_strength = 0.95
 glow_blend_mode = 1
 
+[sub_resource type="AtlasTexture" id=41]
+flags = 4
+atlas = ExtResource( 40 )
+region = Rect2( 0, 0, 119, 119 )
+
+[sub_resource type="AtlasTexture" id=42]
+flags = 4
+atlas = ExtResource( 40 )
+region = Rect2( 119, 0, 119, 119 )
+
+[sub_resource type="AtlasTexture" id=43]
+flags = 4
+atlas = ExtResource( 40 )
+region = Rect2( 238, 0, 119, 119 )
+
+[sub_resource type="AtlasTexture" id=44]
+flags = 4
+atlas = ExtResource( 40 )
+region = Rect2( 357, 0, 119, 119 )
+
+[sub_resource type="AtlasTexture" id=45]
+flags = 4
+atlas = ExtResource( 40 )
+region = Rect2( 476, 0, 119, 119 )
+
+[sub_resource type="AtlasTexture" id=46]
+flags = 4
+atlas = ExtResource( 40 )
+region = Rect2( 595, 0, 119, 119 )
+
 [sub_resource type="SpriteFrames" id=18]
 animations = [ {
-"frames": [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 38 ), ExtResource( 39 ) ],
+"frames": [ SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ) ],
 "loop": true,
 "name": "idle",
 "speed": 40.0
@@ -112,109 +136,109 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 209.174, 45.1784 )
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=47]
 flags = 4
 atlas = ExtResource( 37 )
 region = Rect2( 0, 0, 420, 426 )
 
-[sub_resource type="AtlasTexture" id=19]
-flags = 4
-atlas = ExtResource( 37 )
-region = Rect2( 420, 0, 420, 426 )
-
-[sub_resource type="AtlasTexture" id=20]
-flags = 4
-atlas = ExtResource( 37 )
-region = Rect2( 840, 0, 420, 426 )
-
-[sub_resource type="AtlasTexture" id=21]
-flags = 4
-atlas = ExtResource( 37 )
-region = Rect2( 1260, 0, 420, 426 )
-
-[sub_resource type="AtlasTexture" id=22]
-flags = 4
-atlas = ExtResource( 37 )
-region = Rect2( 1680, 0, 420, 426 )
-
-[sub_resource type="AtlasTexture" id=23]
-flags = 4
-atlas = ExtResource( 37 )
-region = Rect2( 2100, 0, 420, 426 )
-
-[sub_resource type="AtlasTexture" id=24]
-flags = 4
-atlas = ExtResource( 37 )
-region = Rect2( 2520, 0, 420, 426 )
-
-[sub_resource type="AtlasTexture" id=25]
-flags = 4
-atlas = ExtResource( 37 )
-region = Rect2( 2940, 0, 420, 426 )
-
-[sub_resource type="AtlasTexture" id=26]
-flags = 4
-atlas = ExtResource( 37 )
-region = Rect2( 3360, 0, 420, 426 )
-
-[sub_resource type="AtlasTexture" id=27]
-flags = 4
-atlas = ExtResource( 37 )
-region = Rect2( 3780, 0, 420, 426 )
-
-[sub_resource type="AtlasTexture" id=28]
+[sub_resource type="AtlasTexture" id=48]
 flags = 4
 atlas = ExtResource( 37 )
 region = Rect2( 0, 426, 420, 426 )
 
-[sub_resource type="AtlasTexture" id=29]
+[sub_resource type="AtlasTexture" id=49]
+flags = 4
+atlas = ExtResource( 37 )
+region = Rect2( 420, 0, 420, 426 )
+
+[sub_resource type="AtlasTexture" id=50]
 flags = 4
 atlas = ExtResource( 37 )
 region = Rect2( 420, 426, 420, 426 )
 
-[sub_resource type="AtlasTexture" id=30]
+[sub_resource type="AtlasTexture" id=51]
+flags = 4
+atlas = ExtResource( 37 )
+region = Rect2( 840, 0, 420, 426 )
+
+[sub_resource type="AtlasTexture" id=52]
 flags = 4
 atlas = ExtResource( 37 )
 region = Rect2( 840, 426, 420, 426 )
 
-[sub_resource type="AtlasTexture" id=31]
+[sub_resource type="AtlasTexture" id=53]
+flags = 4
+atlas = ExtResource( 37 )
+region = Rect2( 1260, 0, 420, 426 )
+
+[sub_resource type="AtlasTexture" id=54]
 flags = 4
 atlas = ExtResource( 37 )
 region = Rect2( 1260, 426, 420, 426 )
 
-[sub_resource type="AtlasTexture" id=32]
+[sub_resource type="AtlasTexture" id=55]
+flags = 4
+atlas = ExtResource( 37 )
+region = Rect2( 1680, 0, 420, 426 )
+
+[sub_resource type="AtlasTexture" id=56]
 flags = 4
 atlas = ExtResource( 37 )
 region = Rect2( 1680, 426, 420, 426 )
 
-[sub_resource type="AtlasTexture" id=33]
+[sub_resource type="AtlasTexture" id=57]
+flags = 4
+atlas = ExtResource( 37 )
+region = Rect2( 2100, 0, 420, 426 )
+
+[sub_resource type="AtlasTexture" id=58]
 flags = 4
 atlas = ExtResource( 37 )
 region = Rect2( 2100, 426, 420, 426 )
 
-[sub_resource type="AtlasTexture" id=34]
+[sub_resource type="AtlasTexture" id=59]
+flags = 4
+atlas = ExtResource( 37 )
+region = Rect2( 2520, 0, 420, 426 )
+
+[sub_resource type="AtlasTexture" id=60]
 flags = 4
 atlas = ExtResource( 37 )
 region = Rect2( 2520, 426, 420, 426 )
 
-[sub_resource type="AtlasTexture" id=35]
+[sub_resource type="AtlasTexture" id=61]
+flags = 4
+atlas = ExtResource( 37 )
+region = Rect2( 2940, 0, 420, 426 )
+
+[sub_resource type="AtlasTexture" id=62]
 flags = 4
 atlas = ExtResource( 37 )
 region = Rect2( 2940, 426, 420, 426 )
 
-[sub_resource type="AtlasTexture" id=36]
+[sub_resource type="AtlasTexture" id=63]
+flags = 4
+atlas = ExtResource( 37 )
+region = Rect2( 3360, 0, 420, 426 )
+
+[sub_resource type="AtlasTexture" id=64]
 flags = 4
 atlas = ExtResource( 37 )
 region = Rect2( 3360, 426, 420, 426 )
 
-[sub_resource type="AtlasTexture" id=37]
+[sub_resource type="AtlasTexture" id=65]
+flags = 4
+atlas = ExtResource( 37 )
+region = Rect2( 3780, 0, 420, 426 )
+
+[sub_resource type="AtlasTexture" id=66]
 flags = 4
 atlas = ExtResource( 37 )
 region = Rect2( 3780, 426, 420, 426 )
 
 [sub_resource type="SpriteFrames" id=38]
 animations = [ {
-"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ) ],
+"frames": [ SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -349,7 +373,6 @@ open_rotation = 3.0
 position = Vector2( 440, 220 )
 frames = SubResource( 18 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Window/BourdonAnimatedSprite"]
