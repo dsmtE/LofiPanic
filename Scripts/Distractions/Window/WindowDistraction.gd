@@ -7,6 +7,8 @@ onready var windowDragable: Dragable = $WindowDragable
 
 onready var bourdon_anim_player: AnimationPlayer = $BourdonAnimatedSprite/AnimationPlayer
 
+onready var hint_sprite: Hint = $WindowDragable/Window/Hint
+
 export(Vector2) var open_position
 export(float) var open_rotation
 
@@ -33,6 +35,7 @@ func start_panic():
 	bourdon_anim_player.queue("Idle")
 	
 	audio_stream.play()
+	hint_sprite.start_panic()
 
 func _end_panic():
 	._end_panic()
@@ -44,6 +47,7 @@ func _end_panic():
 		0.3, Tween.EASE_OUT, Tween.EASE_IN)
 
 	tween.start()
+	hint_sprite.end_panic()
 	
 func _on_WindowDragable_target_reached():
 	print("_on_WindowDragable_target_reached")
