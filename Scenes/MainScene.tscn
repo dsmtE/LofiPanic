@@ -643,13 +643,6 @@ scale = Vector2( 0.37931, 0.37931 )
 texture = ExtResource( 28 )
 offset = Vector2( 563.186, -189.329 )
 
-[node name="SceneTransitionColorRect" parent="." instance=ExtResource( 29 )]
-unique_name_in_owner = true
-margin_left = -19.0
-margin_top = 20.0
-margin_right = -19.0
-margin_bottom = 20.0
-
 [node name="AlarmClock" type="Node2D" parent="."]
 unique_name_in_owner = true
 position = Vector2( 1144, 235 )
@@ -700,6 +693,9 @@ texture = ExtResource( 38 )
 
 [node name="phone" parent="." instance=ExtResource( 39 )]
 position = Vector2( 635, 521 )
+
+[node name="SceneTransitionColorRect" parent="." instance=ExtResource( 29 )]
+unique_name_in_owner = true
 
 [connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]
 [connection signal="timeout" from="NewDistractionTriggerTimer" to="." method="_on_NewDistractionTriggerTimer_timeout"]
