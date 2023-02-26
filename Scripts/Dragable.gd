@@ -55,4 +55,5 @@ func _input(event: InputEvent):
 func _on_target_area_mouse_entered():
 	if dragging:
 		dragging = false
+		tween_to_starting_state(starting_drag_pos, current_drag_pos)
 		emit_signal("target_reached")

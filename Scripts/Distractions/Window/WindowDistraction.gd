@@ -41,3 +41,4 @@ func _end_panic():
 func _on_WindowDragable_target_reached():
 	print("_on_WindowDragable_target_reached")
 	_end_panic()
+
