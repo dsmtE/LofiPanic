@@ -33,3 +33,5 @@ text = "Restart"
 
 [node name="SceneTransitionColorRect" parent="." instance=ExtResource( 1 )]
 next_scene_path = "res://Scenes/Screens/Menu.tscn"
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]

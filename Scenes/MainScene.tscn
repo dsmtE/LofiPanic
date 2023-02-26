@@ -97,6 +97,8 @@ radius = 22.0907
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
+_win_scene_path = "res://Scenes/Screens/WinScreen.tscn"
+_lose_scene_path = "res://Scenes/Screens/LoseScreen.tscn"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )
