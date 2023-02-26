@@ -366,6 +366,7 @@ wait_time = 3.0
 
 [node name="Window" type="Sprite" parent="."]
 script = ExtResource( 7 )
+level = 1
 open_position = Vector2( 330, -40 )
 open_rotation = 3.0
 
@@ -425,6 +426,7 @@ __meta__ = {
 [node name="Plant" type="Node2D" parent="."]
 position = Vector2( 373, 253 )
 script = ExtResource( 34 )
+level = 2
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Plant"]
 frames = SubResource( 38 )
@@ -506,7 +508,6 @@ process_material = SubResource( 4 )
 
 [node name="plafonier" type="Node2D" parent="."]
 script = ExtResource( 13 )
-level = 3
 
 [node name="Tween" type="Tween" parent="plafonier"]
 
@@ -545,6 +546,7 @@ script = ExtResource( 30 )
 
 [node name="Garland" type="Node2D" parent="."]
 script = ExtResource( 21 )
+level = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Garland"]
 stream = ExtResource( 14 )
@@ -582,6 +584,7 @@ rotation = -0.691411
 
 [node name="Laptop" type="Node2D" parent="."]
 script = ExtResource( 23 )
+level = 1
 
 [node name="Tween" type="Tween" parent="Laptop"]
 
@@ -693,6 +696,7 @@ texture = ExtResource( 38 )
 
 [node name="phone" parent="." instance=ExtResource( 39 )]
 position = Vector2( 635, 521 )
+level = 3
 
 [node name="SceneTransitionColorRect" parent="." instance=ExtResource( 29 )]
 unique_name_in_owner = true
