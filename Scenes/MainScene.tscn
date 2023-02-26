@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Textures/decors/chambre.png" type="Texture" id=2]
@@ -16,12 +16,15 @@
 [ext_resource path="res://Sounds/Retro Electric Sparks 22.wav" type="AudioStream" id=14]
 [ext_resource path="res://Textures/triggers/lampe_on.png" type="Texture" id=15]
 [ext_resource path="res://Textures/triggers/lampe_off.png" type="Texture" id=16]
+[ext_resource path="res://Textures/triggers/plafonier_off.png" type="Texture" id=17]
+[ext_resource path="res://Textures/triggers/plafonier_on.png" type="Texture" id=18]
+[ext_resource path="res://Textures/triggers/bouton_plafonier.png" type="Texture" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 209.174, 45.1784 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8.5, 14.5 )
+extents = Vector2( 15.2115, 20.4416 )
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
@@ -135,6 +138,7 @@ position = Vector2( 943, 193 )
 texture = ExtResource( 16 )
 
 [node name="On" type="Sprite" parent="Lampe"]
+visible = false
 position = Vector2( 924, 244 )
 texture = ExtResource( 15 )
 
@@ -144,7 +148,40 @@ texture = ExtResource( 15 )
 position = Vector2( 993, 301 )
 shape = SubResource( 2 )
 
+[node name="plafonier" type="Node2D" parent="."]
+script = ExtResource( 13 )
+
+[node name="Tween" type="Tween" parent="plafonier"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="plafonier"]
+stream = ExtResource( 14 )
+volume_db = -8.0
+pitch_scale = 1.16
+
+[node name="Off" type="Sprite" parent="plafonier"]
+texture = ExtResource( 17 )
+centered = false
+
+[node name="On" type="Sprite" parent="plafonier"]
+visible = false
+texture = ExtResource( 18 )
+centered = false
+
+[node name="BoutonPlafonier" type="Sprite" parent="plafonier"]
+position = Vector2( 92, 393 )
+texture = ExtResource( 19 )
+
+[node name="Area2D" type="Area2D" parent="plafonier/BoutonPlafonier"]
+position = Vector2( -92, -393 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plafonier/BoutonPlafonier/Area2D"]
+position = Vector2( 91.5, 393 )
+rotation = -0.652753
+scale = Vector2( 1, 1 )
+shape = SubResource( 2 )
+
 [connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]
 [connection signal="timeout" from="NewDistractionTriggerTimer" to="." method="_on_NewDistractionTriggerTimer_timeout"]
 [connection signal="target_reached" from="Window/WindowDragable" to="Window" method="_on_WindowDragable_target_reached"]
 [connection signal="input_event" from="Lampe/Area2D" to="Lampe" method="_on_Area2D_input_event"]
+[connection signal="input_event" from="plafonier/BoutonPlafonier/Area2D" to="plafonier" method="_on_Area2D_input_event"]
