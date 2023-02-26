@@ -10,7 +10,6 @@ onready var fx: Sprite = $FxOrdi
 func _ready():
 	randomize()
 	toggle_light(false)
-	start_panic()
 	
 func generate_tween_flickering():
 	for i in 20:

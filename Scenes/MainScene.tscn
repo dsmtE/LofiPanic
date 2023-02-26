@@ -491,3 +491,4 @@ unique_name_in_owner = true
 [connection signal="target_reached" from="Window/WindowDragable" to="Window" method="_on_WindowDragable_target_reached"]
 [connection signal="input_event" from="Lampe/Area2D" to="Lampe" method="_on_Area2D_input_event"]
 [connection signal="input_event" from="plafonier/BoutonPlafonier/Area2D" to="plafonier" method="_on_Area2D_input_event"]
+[connection signal="input_event" from="Laptop/Area2D" to="Laptop" method="_on_Area2D_input_event"]
