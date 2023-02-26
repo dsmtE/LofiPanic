@@ -8,10 +8,56 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Distraction",
+"class": "Clock",
+"language": "GDScript",
+"path": "res://Scripts/Clock.gd"
+}, {
+"base": "Node2D",
+"class": "Distraction",
+"language": "GDScript",
+"path": "res://Scripts/Distraction.gd"
+}, {
+"base": "Node2D",
+"class": "Dragable",
+"language": "GDScript",
+"path": "res://Scripts/Dragable.gd"
+}, {
+"base": "Node",
+"class": "GameManager",
+"language": "GDScript",
+"path": "res://Scripts/GameManager.gd"
+}, {
+"base": "Sprite",
+"class": "GarlandLight",
+"language": "GDScript",
+"path": "res://Scripts/Distractions/Garland/GarlandLight.gd"
+}, {
+"base": "Node",
+"class": "SleepFeedbacks",
+"language": "GDScript",
+"path": "res://Scripts/SleepFeedbacks.gd"
+}, {
+"base": "Reference",
+"class": "Utils",
+"language": "GDScript",
+"path": "res://Scripts/Utils.gd"
+} ]
+_global_script_class_icons={
+"Clock": "",
+"Distraction": "",
+"Dragable": "",
+"GameManager": "",
+"GarlandLight": "",
+"SleepFeedbacks": "",
+"Utils": ""
+}
+
 [application]
 
 config/name="LofiPanic"
-run/main_scene="res://Scenes/testArea.tscn"
+run/main_scene="res://Scenes/MainScene.tscn"
 config/icon="res://icon.png"
 
 [display]

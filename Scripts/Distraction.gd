@@ -1,24 +1,20 @@
-extends Area2D
+extends Node2D
 
+signal panic_ended
 
-var hovered: bool = false
+# Distraction
+class_name Distraction
 
-func _ready():
-	connect("input_event", self, "_on_Area2D_input_event")
-	connect("mouse_entered", self, "_on_Area2D_mouse_entered")
-	connect("mouse_exited", self, "_on_Area2D_mouse_exited")
+export(int) var level = 0
 
-func _on_Area2D_input_event(viewport: Node, event: InputEvent, shape_idx: int):
-	var mouse_event := event as InputEventMouseButton
-	if (mouse_event && mouse_event.pressed && mouse_event.button_index == BUTTON_LEFT):
-		print("%s clicked" % name)
-		
+var is_in_panic: bool = false setget, is_in_panic_get
 
-
-func _on_Area2D_mouse_entered():
-	hovered = true
-	print("%s mouse_entered" % name)
+func start_panic():
+	is_in_panic = true
 	
-func _on_Area2D_mouse_exited():
-	hovered = false
-	print("%s mouse_exited" % name)
+func _end_panic():
+	is_in_panic = false
+	emit_signal("panic_ended", self)
+
+func is_in_panic_get() -> bool :
+	return is_in_panic

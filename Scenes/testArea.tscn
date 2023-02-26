@@ -1,26 +1,31 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Textures/lofiRatonPlaceholder.jpg" type="Texture" id=1]
+[ext_resource path="res://Scenes/clock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Distraction.gd" type="Script" id=2]
+[ext_resource path="res://Textures/Placeholder/lofiRatonPlaceholderEmpty.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/phone.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/garlandLights.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/window.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/GameManager.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/SleepFeedbacks.gd" type="Script" id=8]
 
-[node name="Node2D" type="Node2D"]
+[node name="Root" type="Node"]
+script = ExtResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 640, 360 )
-texture = ExtResource( 1 )
+texture = ExtResource( 3 )
 
-[node name="clock" type="Area2D" parent="Sprite"]
-script = ExtResource( 2 )
+[node name="clock" parent="Sprite" instance=ExtResource( 1 )]
+position = Vector2( -152, 41 )
 
-[node name="reveil" type="CollisionPolygon2D" parent="Sprite/clock"]
-polygon = PoolVector2Array( -134, -61, -233, 26, -221, 73, -126, 91, -44, 1, -54, -48 )
+[node name="phone" parent="Sprite" instance=ExtResource( 4 )]
+position = Vector2( 289, 295 )
+shake_duration_amp = 0.05
+shake_count = 10.0
 
-[node name="phone" type="Area2D" parent="Sprite"]
-script = ExtResource( 2 )
-
-[node name="phone" type="CollisionPolygon2D" parent="Sprite/phone"]
-position = Vector2( 380, 247 )
-polygon = PoolVector2Array( -161, 50, -126, 91, -19, 51, -46, 13 )
+[node name="garland" parent="Sprite" instance=ExtResource( 5 )]
+position = Vector2( -539, -320 )
 
 [node name="laptop" type="Area2D" parent="Sprite"]
 script = ExtResource( 2 )
@@ -28,3 +33,33 @@ script = ExtResource( 2 )
 [node name="laptop" type="CollisionPolygon2D" parent="Sprite/laptop"]
 position = Vector2( 170, 157 )
 polygon = PoolVector2Array( -12, 131, 119, 42, -49, -87, -156, -16, -230, -79, -174, 2, -22, 136 )
+
+[node name="window" parent="." instance=ExtResource( 6 )]
+position = Vector2( 371, 312 )
+
+[node name="LevelTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 30.0
+__meta__ = {
+"_editor_description_": "Duration of each levels.
+At the end of this timer, we start the next level.
+This will add a new set of potential distractions, on top of the current one."
+}
+
+[node name="NewDistractionTriggerTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.0
+
+[node name="SleepFeedbacks" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource( 8 )
+
+[node name="ProgressBar" type="ProgressBar" parent="SleepFeedbacks"]
+anchor_left = 0.1
+anchor_top = 0.85
+anchor_right = 0.9
+anchor_bottom = 0.95
+mouse_filter = 2
+
+[connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]
+[connection signal="timeout" from="NewDistractionTriggerTimer" to="." method="_on_NewDistractionTriggerTimer_timeout"]
