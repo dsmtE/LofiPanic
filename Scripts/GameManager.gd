@@ -51,6 +51,7 @@ func _ready():
 	_start_game()
 
 func _start_game():
+	MusicManager.play_music()
 	_sleep_health = 100.0
 	_sleep_feedbacks.sleep_health = 100.0
 	
@@ -128,9 +129,11 @@ func _start_next_level():
 
 
 func _win_game():
+	MusicManager.stop_music()
 	_scene_transition.transition_to(_win_scene_path)
 
 func _lose_game():
+	MusicManager.stop_music()
 	_scene_transition.transition_to(_lose_scene_path)
 
 

@@ -72,6 +72,10 @@ config/name="LofiPanic"
 run/main_scene="res://Scenes/Screens/Menu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+MusicManager="*res://Scenes/MusicManager.tscn"
+
 [display]
 
 window/size/width=1280
