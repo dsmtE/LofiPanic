@@ -75,7 +75,7 @@ _global_script_class_icons={
 [application]
 
 config/name="LofiPanic"
-run/main_scene="res://Scenes/Screens/Menu.tscn"
+run/main_scene="res://Scenes/Screens/SplashScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
