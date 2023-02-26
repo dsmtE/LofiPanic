@@ -13,7 +13,7 @@ func _ready():
 	area2D.connect("input_event", self, "_on_Area2D_input_event")
 	randomize()
 	toggle_light(true)
-	
+
 func generate_tween_flickering():
 	for i in 20:
 		tween.interpolate_callback(self, rand_range(0.1, 0.3), "toggle_light", i%2 == 0)
