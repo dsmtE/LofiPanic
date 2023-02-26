@@ -7,7 +7,6 @@ onready var animated_sprite: AnimatedSprite = $AnimatedSprite
 # Assume the window is position closed by default
 func _ready():
 	animated_sprite.frame = 0
-	start_panic()
 
 func start_panic():
 	.start_panic()
