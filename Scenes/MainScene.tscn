@@ -219,6 +219,7 @@ __meta__ = {
 
 [node name="Lampe" type="Node2D" parent="."]
 script = ExtResource( 13 )
+hint_node_path = "Hint"
 
 [node name="Tween" type="Tween" parent="Lampe"]
 
@@ -289,6 +290,7 @@ rotation = -0.652753
 shape = SubResource( 2 )
 
 [node name="Hint" type="Sprite" parent="plafonier"]
+visible = false
 material = SubResource( 12 )
 position = Vector2( 92, 393 )
 texture = ExtResource( 19 )

@@ -18,7 +18,7 @@ func _ready():
 	# TODO change using spriteSheet if possible
 	on_sprite.visible = false
 	off_sprite.visible = true
-	
+
 	generate_tween_flickering()
 	
 func generate_tween_flickering():
