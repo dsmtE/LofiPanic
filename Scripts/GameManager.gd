@@ -95,7 +95,15 @@ func _trigger_new_distraction():
 	var rand_index = rand_range(0,_current_pool_of_distractions.size())
 	var distraction = _current_pool_of_distractions[rand_index] as Distraction
 	
+	var attempt_to_find_distraction = 0
+	
 	while _distractions_in_panic.has(distraction):
+		# PREVENT BROKEN WHILE LOOP
+		if (attempt_to_find_distraction > 20):
+			return
+		else:
+			attempt_to_find_distraction += 1
+		
 		rand_index = rand_range(0,_current_pool_of_distractions.size())
 		distraction = _current_pool_of_distractions[rand_index] as Distraction
 	
