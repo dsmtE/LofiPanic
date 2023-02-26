@@ -2,8 +2,8 @@ extends Node
 
 class_name GameManager
 
-export(float) var _min_distraction_wait_time = 2.0
-export(float) var _max_distraction_wait_time = 5.0
+export(float) var _min_distraction_wait_time = 1.5
+export(float) var _max_distraction_wait_time = 2.5
 
 export(String, FILE, "*.tscn") var _win_scene_path
 export(String, FILE, "*.tscn") var _lose_scene_path
@@ -84,7 +84,9 @@ func _process(delta):
 func _on_NewDistractionTriggerTimer_timeout():
 	_trigger_new_distraction()
 	
-	_new_distraction_trigger_timer.wait_time = rand_range(_min_distraction_wait_time, _max_distraction_wait_time)
+	var difficulty_factor = 3.0 * (1.0 - (_current_level as float / _highest_level as float))
+	_new_distraction_trigger_timer.wait_time = difficulty_factor + rand_range(_min_distraction_wait_time, _max_distraction_wait_time)
+	print("temp : %f" % _new_distraction_trigger_timer.wait_time)
 	_new_distraction_trigger_timer.start()
 
 
