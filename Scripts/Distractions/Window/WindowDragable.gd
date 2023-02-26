@@ -21,7 +21,7 @@ func tween_to_starting_state(_starting_pos: Vector2, _current_pos: Vector2):
 			Tween.EASE_IN
 		)
 	tween.start()
-	
+
 func tween_to_current_state(_starting_mouse_pos: Vector2, current_mouse_pos: Vector2):
 	
 	var local_mouse_pos: Vector2 = sprite_parent.to_local(current_mouse_pos)
